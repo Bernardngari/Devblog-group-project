@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-    belongs_to :blogger
+    # belongs_to :blogger
     has_many :comments, dependent: :destroy
 
     validates :content, {
