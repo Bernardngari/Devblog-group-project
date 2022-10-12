@@ -57,12 +57,20 @@ const Signup = () => {
     }
 
   return (
-    <div>
+      <div className='container'>
+          <h1>Register</h1>
       <form className="signup" onSubmit={HandleSubmit}>
-        {inputs.map((input) =>( 
-            <Forminput key={input.id} {...input} value={state[input.name]} onChange={onChange}/>)
-              )}
-              <button type='submit'>Submit</button>
+        {inputs.map((input) => (
+          <Forminput
+            key={input.id}
+            {...input}
+            value={state[input.name]}
+            onChange={onChange}
+          />
+        ))}
+        <button type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
