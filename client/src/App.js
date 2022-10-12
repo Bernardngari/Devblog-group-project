@@ -1,9 +1,9 @@
 import './App.css';
-
+import Signup from './Signup';
 function App() {
   return (
     <div className="app">
-      <p>new</p>
+      <Signup/>
    </div>
   );
 }
