@@ -1,15 +1,24 @@
-import React from 'react'
+import React from 'react';
+// import {Link} from 'react-router-dom';
 
 
 function Navbar() {
   return (
-    <div>
+    <div className='nav-bar'>
       <h2>Devblog</h2>
-      <div className='nav a'>
+      <div className='navbar-menu'>
+        {/* <Link to={"/"}> */}
       Home
+      {/* </Link> */}
+      {/* <Link to={"/blog"}> */}
       Blog
+      {/* </Link> */}
+      {/* <Link to={"/login"}> */}
       Login
+      {/* </Link> */}
+      {/* <Link to={"/signup"}> */}
       Sign-up
+      {/* </Link> */}
       </div>
       
       </div>

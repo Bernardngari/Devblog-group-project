@@ -15,22 +15,24 @@ h2{
   text-align: center;
 }
 
-.nav {
+.nav-bar {
   overflow: hidden;
-  background-color: rgb(164, 147, 126);
+  background-color: grey;
   padding: 15px 20px;
+  
 }
 
-.nav a{
+.navbar-menu{
   float: right;
-  display: block;
-  color: #f2f2f2;
+  display: flex;
+  color: rgb(27, 25, 25);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  
 }
 
-.nav a:hover{
+.navbar-menu:hover{
   background-color: #ddd;
   color:black;
 }
