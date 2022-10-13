@@ -1,11 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
-import {Link} from 'react-router-dom';
->>>>>>> 3dae0d3cd2315f3e21b85d2c83e5a879e01035c9
-
-
 function Navbar() {
   return (
     <div className='nav-bar'>
