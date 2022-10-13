@@ -25,6 +25,12 @@ protect_from_forgery
         show
     end
 
+    def destroy
+        blogs = find_blog
+        blogs.destroy
+        head :no_content
+    end
+
     private
     def find_blog
         Blog.find(params[:id])
