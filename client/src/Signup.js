@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import Forminput from './Forminput'
 import './signup.css'
 const Signup = () => {
@@ -9,6 +10,9 @@ const Signup = () => {
         email: "",
         imageUrl:""
     })
+  
+ const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
 
     const inputs = [
       {
@@ -16,35 +20,42 @@ const Signup = () => {
         name: "username",
         type: "text",
         placeholder: "username",
+        errorMessage:
+          "username should include 3-16 letters and should not contain special characters!",
         label: "UserName",
+        pattern: "^[A-Za-z0-9]{3,16}$",
+        required: true,
       },
       {
         id: 2,
         name: "password",
         type: "password",
         placeholder: "Enter Password",
+        errorMessage:
+          "should be 6-16 characters long should contain 1 special character 1 number and one uppercase letter!",
         label: "Password",
+        pattern: "[a-zA-Z0-9!@#$%^&*]{6,16}",
+        required: true,
       },
       {
         id: 3,
         name: "confirmPassword",
         type: "password",
         placeholder: "Confirm Password",
+        errorMessage: "passwords do not match!",
         label: "Confirm Password",
+        pattern: state.password,
+        required: true,
       },
       {
         id: 4,
         name: "email",
         type: "text",
         placeholder: "Email",
+        errorMessage: "should be a valid email address!",
         label: "Email",
+        required: true,
       },
-      {
-        id: 5,
-        name: "imageUrl",
-        type: "file",
-        label: "Upload Image",
-      }
     ];
 
     function onChange(e) {
@@ -53,13 +64,28 @@ const Signup = () => {
 
     function HandleSubmit(e) {
         e.preventDefault()
-        console.log(state)
+      fetch('/bloggers', {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify(state)
+      }).then((r) => {
+        if (r.ok) {
+            navigate("/login")
+        } else {
+          r.json().then((err) => setErrors(err.errors))
+          }
+        })
     }
 
   return (
       <div className='container'>
           <h1>Register</h1>
       <form className="signup" onSubmit={HandleSubmit}>
+        {errors.map((err) =>(
+        <p key={err} id='error-txt'>{ err }</p>
+        ))}
         {inputs.map((input) => (
           <Forminput
             key={input.id}
