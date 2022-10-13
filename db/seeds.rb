@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+c1 = Comment.create(comment: "I recently deployed a project with a Rails backend and React frontend to Heroku and wanted to share my experience with the process, since it is not entirely obvious.", blog_id: 1, blogger_id: 2)
+c2 = Comment.create(comment: "I recently deployed a project with a Rails backend and React frontend to Heroku and wanted to share my experience with the process, since it is not entirely obvious.", blog_id: 1, blogger_id: 1)
+c3 = Comment.create(comment: "I recently deployed a project with a Rails backend and React frontend to Heroku and wanted to share my experience with the process, since it is not entirely obvious.", blog_id: 2, blogger_id: 2)
+c4 = Comment.create(comment: "I recently deployed a project with a Rails backend and React frontend to Heroku and wanted to share my experience with the process, since it is not entirely obvious.", blog_id: 2, blogger_id: 1)
