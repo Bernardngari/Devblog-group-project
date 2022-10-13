@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import Navbar from './Component/Navbar';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -16,6 +17,15 @@ function App() {
     </Routes>
     </Router> */}
     </div>
+=======
+import './App.css';
+import Signup from './Signup';
+function App() {
+  return (
+    <div className="app">
+      <Signup/>
+   </div>
+>>>>>>> d6bb063ccbc31439e573f0872dea26060efe8815
   );
 }
 
