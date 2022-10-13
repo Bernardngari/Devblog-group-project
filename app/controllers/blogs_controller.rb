@@ -12,7 +12,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
     end
 
     def create
-        blogs = Blog.create(blogs_params)
+        blogs = Blog.create!(blogs_params)
         show, status: :created
     end
 
