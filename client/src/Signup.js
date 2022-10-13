@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import Forminput from './Forminput'
 import './signup.css'
 const Signup = () => {
@@ -9,6 +10,9 @@ const Signup = () => {
         email: "",
         imageUrl:""
     })
+  
+ const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
 
     const inputs = [
       {
@@ -60,13 +64,28 @@ const Signup = () => {
 
     function HandleSubmit(e) {
         e.preventDefault()
-        console.log(state)
+      fetch('/bloggers', {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify(state)
+      }).then((r) => {
+        if (r.ok) {
+            navigate("/login")
+        } else {
+          r.json().then((err) => setErrors(err.errors))
+          }
+        })
     }
 
   return (
       <div className='container'>
           <h1>Register</h1>
       <form className="signup" onSubmit={HandleSubmit}>
+        {errors.map((err) =>(
+        <p key={err} id='error-txt'>{ err }</p>
+        ))}
         {inputs.map((input) => (
           <Forminput
             key={input.id}
