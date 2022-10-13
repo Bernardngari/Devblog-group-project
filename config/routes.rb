@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create_session'
   delete '/logout', to: 'sessions#logout'
   resources :blogs, only: [:index, :show, :create]
+  resources :comments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

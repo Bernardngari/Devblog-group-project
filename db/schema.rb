@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_10_13_041244) do
   create_table "bloggers", force: :cascade do |t|
     t.string "username"
@@ -23,6 +24,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_204655) do
     t.string "content"
     t.integer "blogger_id"
 >>>>>>> 984d528ac0d5b231b4ed55781dc0ec5aade35e8e
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_132135) do
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.integer "blog_id"
+    t.integer "blogger_id"
+>>>>>>> 0e1c8f303e92595de2caaa3cbd0cfa6029765e98
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
