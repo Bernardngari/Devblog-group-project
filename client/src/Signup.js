@@ -16,35 +16,42 @@ const Signup = () => {
         name: "username",
         type: "text",
         placeholder: "username",
+        errorMessage:
+          "username should include 3-16 letters and should not contain special characters!",
         label: "UserName",
+        pattern: "^[A-Za-z0-9]{3,16}$",
+        required: true,
       },
       {
         id: 2,
         name: "password",
         type: "password",
         placeholder: "Enter Password",
+        errorMessage:
+          "should be 6-16 characters long should contain 1 special character 1 number and one uppercase letter!",
         label: "Password",
+        pattern: "[a-zA-Z0-9!@#$%^&*]{6,16}",
+        required: true,
       },
       {
         id: 3,
         name: "confirmPassword",
         type: "password",
         placeholder: "Confirm Password",
+        errorMessage: "passwords do not match!",
         label: "Confirm Password",
+        pattern: state.password,
+        required: true,
       },
       {
         id: 4,
         name: "email",
         type: "text",
         placeholder: "Email",
+        errorMessage: "should be a valid email address!",
         label: "Email",
+        required: true,
       },
-      {
-        id: 5,
-        name: "imageUrl",
-        type: "file",
-        label: "Upload Image",
-      }
     ];
 
     function onChange(e) {
