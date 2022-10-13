@@ -1,11 +1,7 @@
 class BlogsController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
-rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
-<<<<<<< HEAD
-before_action :authorize, only: [:create]
-
-
-
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
+  before_action :authorize, only: [:create]
 
     def index
         blogs = Blog.all
