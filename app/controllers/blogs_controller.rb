@@ -19,6 +19,12 @@ protect_from_forgery
         render json: blogs, status: :created
     end
 
+    def update
+        blogs = find_blog
+        blogs.update!(blogs_params)
+        show
+    end
+
     private
     def find_blog
         Blog.find(params[:id])
