@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
+before_action :authorize, only: [:create]
     def index
         blogs = Blog.all
         render json: blogs
@@ -12,8 +13,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
     end
 
     def create
-        blogs = Blog.create!(blogs_params)
-        show, status: :created
+        blogger = Blogger.find(session[:blogger_id])
+        blogs = blogger.blogs.create!(blogs_params)
+        render json: blogs, status: :created
     end
 
     private

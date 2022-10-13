@@ -1,3 +1,7 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+class ApplicationController < ActionController::API
+  include ActionController::Cookies
+  
+  def authorize
+    return render json: {message: "You must log in to access this functionality"} , status: :unauthorized unless session.include? :blogger_id
+  end
 end
