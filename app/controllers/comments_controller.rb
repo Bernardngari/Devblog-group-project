@@ -12,22 +12,22 @@ class CommentsController < ApplicationController
     render json: comment
   end
 
-  # def create
-  #   comment = Comment.create!(comment_params)
-  #   render json: comment, status: :created
-  # end
+  def create
+    comment = Comment.create!(comment_params)
+    render json: comment, status: :created
+  end
 
-  # def update
-  #   comment = Comment.find(params[:id])
-  #   comment.update!(comment_params)
-  #   render json: comment
-  # end
+  def update
+    comment = Comment.find(params[:id])
+    comment.update!(comment_params)
+    render json: comment
+  end
 
-  # def destroy
-  #   comment = Comment.find(params[:id])
-  #   comment.destroy
-  #   render json: {}, status: :no_content
-  # end
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    render json: {}, status: :no_content
+  end
 
   private
   def render_not_found_response
