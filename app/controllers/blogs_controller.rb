@@ -13,7 +13,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_data
 
     def create
         blogs = Blog.create!(blogs_params)
-        show, status: :created
+        render json: blogs, status: :created
     end
 
     private
