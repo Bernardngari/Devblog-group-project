@@ -76,4 +76,11 @@ body {
   text-decoration: underline;
 }
 
+.comment{
+  background-color:rgb(72 72 151);
+  width: 200px;
+  height: 35px;
+  padding: auto;
+}
+
   

@@ -8,7 +8,7 @@ function Createcomment({id}) {
   return (
     <div>
       {showAdd? 
-      <button className='btn1' id={id} onClick={()=>setShowAdd(()=>!showAdd)}>Add comment</button> 
+      <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)}>reply</button> 
       : 
       <Commentform showAdd={showAdd} setShowAdd={setShowAdd} id={id}/>}
     </div>

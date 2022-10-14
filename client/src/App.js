@@ -5,6 +5,7 @@ import Home from './Component/Home';
 //import Blog from './Component/Blog';
 import Signup from './Component/Signup';
 import Login from './Component/Login';
+import BloggerWithComments from './Component/BloggerWithComments';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/" element={<Home/>} />
        <Route exact path="/signup" element={<Signup/>}/> 
       <Route exact path="/login" element={<Login/>}/>
+      <Route path="/blogs/:id" element={<BloggerWithComments />} />
       
    </Routes>
    </Router> 

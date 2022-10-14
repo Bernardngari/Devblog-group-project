@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Createcomment from "./Createcomment";
 import { NavLink } from "react-router-dom";
+import capitalize from "./capitalize";
 function Home() {
-  const capitalize= (word)=>{
-    let result = word.charAt(0).toUpperCase() + word.slice(1)
-    return result
-  }
   const [blogs, setBlogs]= useState([]);
   useEffect (() => {
     fetch("http://127.0.0.1:3000/blogs")
@@ -21,11 +17,7 @@ function Home() {
             <p className="title">{blog.title}</p>
             <p>{blog.content.substring(0,200)}...<NavLink to={`/blogs/${blog.id}`}>Read more</NavLink></p>
             <p><strong>Written by: {capitalize(blog.blogger.username)}</strong></p>
-            <div>
-              <Createcomment id={blog.id}/>
             </div>
-            </div>
-          
         ))}
       </div>
   
