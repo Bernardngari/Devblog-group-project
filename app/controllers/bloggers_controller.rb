@@ -9,7 +9,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
       blogger = Blogger.create!(blogger_params)
       render json: blogger, status: :created
   end
-
+  
   def destroy
     blogger = find_blogger
     blogger.destroy

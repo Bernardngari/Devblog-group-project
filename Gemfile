@@ -52,7 +52,7 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Serializer
-gem 'active_model_serializers', '~> 0.10.13'
+#gem 'active_model_serializers', '~> 0.10.13'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

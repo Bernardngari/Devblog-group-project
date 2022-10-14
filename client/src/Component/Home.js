@@ -6,7 +6,7 @@ function Home() {
   useEffect (() => {
     fetch("http://127.0.0.1:3000/blogs")
     .then((response) => response.json())
-    .then((blogs) => setBlogs(blogs));
+    .then((blogs) => console.log(blogs));
   }, []);
   return (
     <>

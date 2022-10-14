@@ -2,16 +2,10 @@ import Navbar from './Component/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Component/Home';
-import Blog from './Component/Blog';
-import Signup from './Signup';
+//import Blog from './Component/Blog';
+//import Signup from './Signup';
 import Login from './Login';
 
-import Navbar from './Component/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Home from './Component/Home';
-// import Signup from './Component/Signup';
-import Login from './Component/Login';
 
 function App() {
  return (
