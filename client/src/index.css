@@ -1,9 +1,9 @@
 body {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
-    background-color: burlywood;
+    background-color: antiquewhite;
+    
   }
   
   code {
@@ -22,31 +22,32 @@ body {
     color: antiquewhite;
   }
   
-  .nav-bar {
-    overflow: hidden;
-    background-color: rgb(72, 72, 151);
-    padding: 15px 20px;
-    
+  .navBar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    background-color: rgb(72, 72, 151); 
+    width: 100%;  
+    text-align: right;
+    padding: 5px 0;
+     
+     
   }
   
-  .navbar-link{
-    float: left;
-    color: blanchedalmond;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    
+  .navLink{
+    color: antiquewhite;
+    padding: 5px;
     
   }
+     
   
-  .navbar-link:hover{
+  .navLink:hover{
     background-color: rgb(207, 188, 188);
-    color:rgb(203, 25, 25);
+    color:rgb(14, 11, 11);
   }
 
   .container-1{
-    float:left;
-    background-color: burlywood;
+    background-color: antiquewhite;
     height: 300px;
     width: 500px;
     margin: 10px;
