@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-
+import Createcomment from "./Createcomment";
+import { NavLink } from "react-router-dom";
 function Home() {
   const [blogs, setBlogs]= useState([]);
   useEffect (() => {
@@ -15,10 +15,10 @@ function Home() {
         {blogs.map((blog) =>(
           <div key={blog.id}>
             <p>Blog title: {blog.title}</p>
-            <p>{blog.content}</p>
+            <p>{blog.content.substring(0,200)}...<NavLink to={`/blogs/${blog.id}`}>Read more</NavLink></p>
             <p>Written by: {blog.blogger.username}</p>
             <div>
-              <button className="btn1"> Add comment</button>
+              <Createcomment id={blog.id}/>
             </div>
             </div>
           

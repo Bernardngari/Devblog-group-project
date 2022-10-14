@@ -32,7 +32,7 @@ const Login = () => {
   return (
       <div>
       <form id="login" onSubmit={handleSubmit}>
-        <p>{ error}</p>
+        <p className='error'>{ error}</p>
               <label>Username</label>
               <input type="text" name='username' onChange={handleChange} required/>
               <label htmlFor="password">Password</label>
