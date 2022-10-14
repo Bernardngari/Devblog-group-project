@@ -6,7 +6,7 @@ function Home() {
   useEffect (() => {
     fetch("http://127.0.0.1:3000/blogs")
     .then((response) => response.json())
-    .then((blogs) => console.log(blogs));
+    .then((blogs) => setBlogs(blogs));
   }, []);
   return (
     <>
@@ -14,9 +14,9 @@ function Home() {
       <div className="container-1">
         {blogs.map((blog) =>(
           <div key={blog.id}>
-            <p>title: {blog.title}</p>
-            <p>content: {blog.content}</p>
-            <p>blogger_id: {blog.blogger_id}</p>
+            <p>Blog title: {blog.title}</p>
+            <p>{blog.content}</p>
+            <p>Written by: {blog.blogger.username}</p>
             </div>
         ))}
       </div>

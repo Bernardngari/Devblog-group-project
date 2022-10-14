@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Component/Home';
 //import Blog from './Component/Blog';
-//import Signup from './Signup';
-import Login from './Login';
+import Signup from './Component/Signup';
+import Login from './Component/Login';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Navbar />
        <Routes>
       <Route exact path="/" element={<Home/>} />
-       {/* <Route exact path="/signup" element={<Signup/>}/>  */}
+       <Route exact path="/signup" element={<Signup/>}/> 
       <Route exact path="/login" element={<Login/>}/>
       
    </Routes>

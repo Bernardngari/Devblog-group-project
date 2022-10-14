@@ -19,9 +19,9 @@ class CommentsController < ApplicationController
   #Bernard
   def create
     #blogger = Blogger.find(session[:blogger_id])
-    #blog = Blog.find(params[:id])
+    blog = Blog.find(params[:id])
     #comment = blogger.comments.create!(comment_params)
-    comment = Comment.create!(blog_id: 3, comment: params[:comment], blogger_id: session[:blogger_id])
+    comment = Comment.create!(blog_id: blog.id, comment: params[:comment], blogger_id: session[:blogger_id])
     #comment = Comment.create!(comment_params)
     render json: comment, status: :created
   end
