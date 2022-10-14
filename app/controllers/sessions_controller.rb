@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:blogger_id] ||= blogger.id 
       render json:{ body: blogger, message: "Login success"}, status: :ok
     else
-      render json: {message: "Wrong credentials. Please try again"}
+      render json: {message: "Wrong credentials. Please try again"}, status: :unauthorized
     end
   end
   
