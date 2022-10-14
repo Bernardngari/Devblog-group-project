@@ -23,7 +23,8 @@ const Login = () => {
       body: JSON.stringify(values),
     }).then((r) => {
       if (r.ok) {
-        navigate("/home");
+        // navigate("/home");
+        r.json().then(data => console.log)
       } else {
         r.json().then((err) => console.log(err));
       }
