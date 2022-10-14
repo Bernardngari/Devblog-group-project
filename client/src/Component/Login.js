@@ -11,6 +11,7 @@ const Login = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
+  const[error, setError] = useState("")
   function handleSubmit(e) {
     e.preventDefault()
     fetch("/login", {
@@ -24,13 +25,14 @@ const Login = () => {
          navigate("/");
         r.json().then(data => console.log(data))
       } else {
-        r.json().then((err) => console.log(err));
+        r.json().then((err) => setError(err.message));
       }
     });
   }
   return (
       <div>
-          <form id="login" onSubmit={handleSubmit}>
+      <form id="login" onSubmit={handleSubmit}>
+        <p>{ error}</p>
               <label>Username</label>
               <input type="text" name='username' onChange={handleChange} required/>
               <label htmlFor="password">Password</label>
