@@ -17,7 +17,11 @@ function Home() {
             <p>Blog title: {blog.title}</p>
             <p>{blog.content}</p>
             <p>Written by: {blog.blogger.username}</p>
+            <div>
+              <button className="btn1"> Add comment</button>
             </div>
+            </div>
+          
         ))}
       </div>
   
