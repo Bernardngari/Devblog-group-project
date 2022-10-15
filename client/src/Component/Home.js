@@ -19,6 +19,7 @@ function Home({onLogin,logout}) {
 
   return (
     <section>
+    
       <h1>Welcome to Devblog</h1>
       <div className="container-1">
         {blogs.map((blog) =>(
@@ -27,6 +28,7 @@ function Home({onLogin,logout}) {
             <p>{blog.content.substring(0,200)}...<NavLink to={`/blogs/${blog.id}`}>Read more</NavLink></p>
             <p><strong>Written by: {capitalize(blog.blogger.username)}</strong></p>
             </div>
+             
         ))}
       </div>
   

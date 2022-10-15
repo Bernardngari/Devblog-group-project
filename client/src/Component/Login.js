@@ -31,17 +31,18 @@ const Login = () => {
     
   }
   return (
-      <section>
+      <div className='container-2'>
       <form id="login" onSubmit={handleSubmit}>
         <p className='error'>{ error}</p>
-              <label>Username</label>
+              <h3>Login Details</h3>
+              <label className='lab'>Username</label>
               <input type="text" name='username' onChange={handleChange} required/>
-              <label htmlFor="password">Password</label>
+              <label className='lab' htmlFor="password">Password</label>
               <input type="password" name='password' onChange={handleChange} required/>
-              <button type='submit'>Login</button>
+              <button className="btn2" type='submit'>Login</button>
               <p>Not yet registered click <Link to={"/signup"}>here</Link> to signup</p>
           </form>
-    </section>
+    </div>
   )
 }
 export default Login

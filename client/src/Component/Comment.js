@@ -1,10 +1,11 @@
 import React from 'react'
 function Comment({comments}){
   return (
-    <section>
+    <section >
+      <p><b>Comments</b></p>
       {comments.map((comment) =>(
         <div key={comment.id}>
-        <p>{comment.comment}</p>
+        <p className='reply'>{comment.comment}</p>
         </div>
       ))}
     </section>
