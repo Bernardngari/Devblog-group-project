@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
+import image from "../img/blog3.jpg";
+
 function Home() {
   const [blogs, setBlogs]= useState([]);
   useEffect (() => {
@@ -10,7 +12,11 @@ function Home() {
   }, []);
   return (
     <section>
+      <div className="image">
+      <img  src={image}/>
+      </div>
       <h1>Welcome to Devblog</h1>
+
       <div className="container-1">
         {blogs.map((blog) =>(
           <div key={blog.id}>
