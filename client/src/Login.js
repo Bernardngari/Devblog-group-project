@@ -30,14 +30,14 @@ const Login = () => {
     });
   }
   return (
-      <div className="login">
-          <form className="form" id="login" onSubmit={handleSubmit}>
+      <div>
+          <form id="login" onSubmit={handleSubmit}>
               <label>Username</label>
               <input type="text" name='username' onChange={handleChange} required/>
               <label htmlFor="password">Password</label>
               <input type="password" name='password' onChange={handleChange} required/>
               <button type='submit'>Login</button>
-              <p className="message" >Not yet registered click <Link to={"/signup"}>here</Link> to signup</p>
+              <p>Not yet registered click <Link to={"/signup"}>here</Link> to signup</p>
           </form>
     </div>
   )
