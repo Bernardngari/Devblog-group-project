@@ -23,14 +23,15 @@ const Login = () => {
     }).then((r) => {
       if (r.ok) {
          navigate("/");
-        r.json().then(data => console.log(data))
+        r.json().then(data => console.log(data.body.id))
       } else {
         r.json().then((err) => setError(err.message));
       }
     });
+    
   }
   return (
-      <div>
+      <section>
       <form id="login" onSubmit={handleSubmit}>
         <p className='error'>{ error}</p>
               <label>Username</label>
@@ -40,7 +41,7 @@ const Login = () => {
               <button type='submit'>Login</button>
               <p>Not yet registered click <Link to={"/signup"}>here</Link> to signup</p>
           </form>
-    </div>
+    </section>
   )
 }
 export default Login

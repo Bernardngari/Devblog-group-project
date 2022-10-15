@@ -15,8 +15,8 @@ class BlogsController < ApplicationController
 
     def create
         blogger = Blogger.find(session[:blogger_id])
-        blogs = blogger.blogs.create!(blogs_params)
-        render json: blogs, status: :created
+        blog = blogger.blogs.create!(blogs_params)
+        render json: blog, status: :created
     end
 
     def update

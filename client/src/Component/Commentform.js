@@ -26,7 +26,7 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='addComment'>
       <input type='text'
         name="comment"
         onChange={handleChange} 

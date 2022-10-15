@@ -83,4 +83,30 @@ body {
   padding: auto;
 }
 
+.wrap{
+  display: flex;
+  align-items: center;
+
+}
+
+.addComment{
+  display: flex;
+  flex-direction: column;
+}
+
+.logout{
+  width:63px;
+  height: 30px;
+  margin-right: 20px;
+  color: antiquewhite;
+  font-weight: 350;
+  font-size: medium;
+  margin-top: 20px;
+}
+
+.navCont{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
   

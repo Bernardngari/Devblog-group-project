@@ -2,24 +2,31 @@ import Navbar from './Component/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Component/Home';
-//import Blog from './Component/Blog';
 import Signup from './Component/Signup';
 import Login from './Component/Login';
 import BloggerWithComments from './Component/BloggerWithComments';
-
+import { useState, useEffect} from 'react';
 
 function App() {
+  const [auth, setAuth] = useState(0)
+  const [logout, setLogout] = useState(false)
+  function onLogout(){
+    setLogout(()=>!logout)
+  }
+
+  function onLogin(id){
+    setAuth(id) 
+  }
+    
  return (
    <div>
-     
       <Router>
-      <Navbar />
+      <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
-      <Route exact path="/" element={<Home/>} />
+      <Route exact path="/" element={<Home onLogin={onLogin} logout={logout}/>} />
        <Route exact path="/signup" element={<Signup/>}/> 
       <Route exact path="/login" element={<Login/>}/>
-      <Route exact path="/blogs/:id" element={<BloggerWithComments />} />
-      
+      <Route exact path="/blogs/:id" element={<BloggerWithComments loggedInUser={auth}/>} />
    </Routes>
    </Router> 
    </div>
