@@ -24,6 +24,10 @@ body {
   h3{
     text-align: center;
   }
+
+  p{
+    font-style: italic;
+  }
   .navBar { 
     position: fixed;  
     top: 0;  
@@ -39,11 +43,6 @@ body {
   .navLink{
     color: antiquewhite;
     padding: 5px;
-    /* float:right;   */
-     /* display: block;   */
-     /* text-align: center;  */
-    /* text-decoration: none;  */
-     
   }
      
   
@@ -112,8 +111,16 @@ body {
   height: 50px;
   text-align: center;
   color: antiquewhite;
-  border-radius: 40px;
-  
+  border-radius: 10px;
 }
+
+.reply{
+  font-size: meduim;
+  background-color: rgb(224, 204, 180);
+  width: 50%;
+  display: grid; 
+  border-style: inset;
+} 
+
 
   
