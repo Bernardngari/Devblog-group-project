@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-import image from "../img/blog3.jpg";
+// import image from "../img/blog3.jpg";
 
 function Home() {
   const [blogs, setBlogs]= useState([]);
@@ -12,11 +12,8 @@ function Home() {
   }, []);
   return (
     <section>
-      <div className="image">
-      <img  src={image}/>
-      </div>
+    
       <h1>Welcome to Devblog</h1>
-
       <div className="container-1">
         {blogs.map((blog) =>(
           <div key={blog.id}>
@@ -24,6 +21,7 @@ function Home() {
             <p>{blog.content.substring(0,200)}...<NavLink to={`/blogs/${blog.id}`}>Read more</NavLink></p>
             <p><strong>Written by: {capitalize(blog.blogger.username)}</strong></p>
             </div>
+             
         ))}
       </div>
   
