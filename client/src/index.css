@@ -126,8 +126,8 @@ body {
   width: 0px;
 
  }
-
-.wrap{
+/*Added by bernard, upto 155*/
+/*.wrap{
   display: flex;
   align-items: center;
 
@@ -153,4 +153,4 @@ body {
   align-items: center;
   justify-content: right;
 }
-  
+  */
