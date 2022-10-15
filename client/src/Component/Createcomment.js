@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import Commentform from './Commentform'
-function Createcomment({id}) {
+function Createcomment({id, onAddComment}) {
 
   const[showAdd, setShowAdd] = useState(true)
 
@@ -10,7 +10,7 @@ function Createcomment({id}) {
       {showAdd? 
       <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)}>reply</button> 
       : 
-      <Commentform showAdd={showAdd} setShowAdd={setShowAdd} id={id}/>}
+      <Commentform showAdd={showAdd} setShowAdd={setShowAdd} id={id} onAddComment={onAddComment}/>}
     </div>
   )
 }

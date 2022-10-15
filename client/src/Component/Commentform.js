@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Commentform({showAdd,setShowAdd, id}){
+function Commentform({showAdd,setShowAdd, id, onAddComment}){
   const[reply, setReply] = useState({
     comment:"",
     blog_id: id
@@ -20,8 +20,9 @@ function Commentform({showAdd,setShowAdd, id}){
         },
         body: JSON.stringify(reply)
       })
+      .then((res) =>res.json())
+      .then(data => onAddComment(data))
       setShowAdd(()=>!showAdd)
-    
     }
 
   return (

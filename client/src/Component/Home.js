@@ -9,7 +9,7 @@ function Home() {
     .then((blogs) => setBlogs(blogs));
   }, []);
   return (
-    <>
+    <section>
       <h1>Welcome to Devblog</h1>
       <div className="container-1">
         {blogs.map((blog) =>(
@@ -21,7 +21,7 @@ function Home() {
         ))}
       </div>
   
-    </>
+    </section>
   );
 }
 

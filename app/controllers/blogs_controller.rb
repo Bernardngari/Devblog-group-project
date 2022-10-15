@@ -9,8 +9,8 @@ class BlogsController < ApplicationController
     end
 
     def show
-        blogs = find_blog
-        render json: blogs
+        blog = find_blog
+        render json: blog,serializer: BlogWithCommentsSerializer, status: :ok
     end
 
     def create
