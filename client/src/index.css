@@ -52,9 +52,11 @@ body {
 
   .container-1{
     background-color: antiquewhite;
-    height: 300px;
-    width: 500px;
+    height: 400px;
+    width: 1200px;
     margin: 10px;
+    display: flex;
+    
   }
 .btn1{
   height: 40px;
