@@ -22,7 +22,7 @@ function BloggerWithComments(){
     fetchData()
       .then((res) =>{
         setBlog(res)
-        setComments(res.comments.reverse())
+        setComments(res.comments)
         setName(res.blogger.username)
       })
       .catch((e) =>{
