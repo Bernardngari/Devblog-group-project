@@ -34,11 +34,12 @@ const Login = () => {
   return (
       <div className="login">
       <form className="form" id="login" onSubmit={handleSubmit}>
+      <p>Login</p>
         <p>{ error}</p>
-              <label>Username</label>
-              <input type="text" name='username' onChange={handleChange} required/>
-              <label htmlFor="password">Password</label>
-              <input type="password" name='password' onChange={handleChange} required/>
+              <div className="label"><label>Username</label></div>
+              <input type="text" placeholder="username" name='username' onChange={handleChange} required/>
+              <div className="label"><label htmlFor="password">Password</label></div>
+              <input type="password" placeholder="password" name='password' onChange={handleChange} required/>
               <button type='submit'>Login</button>
               <p className="message" >Not yet registered click <Link to={"/signup"}>here</Link> to signup</p>
           </form>
