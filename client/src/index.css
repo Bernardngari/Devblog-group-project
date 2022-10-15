@@ -21,7 +21,9 @@ body {
     text-align: center;
     color: antiquewhite;
   }
-  
+  h3{
+    text-align: center;
+  }
   .navBar { 
     position: fixed;  
     top: 0;  
@@ -60,7 +62,7 @@ body {
     justify-content: space-between; 
   }
   .container-2{
-    background-color: rgb(206, 225, 225);
+    background-color: rgb(224, 204, 180);
     height: 210px;
     width: 300px;
   }

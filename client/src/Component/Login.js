@@ -33,6 +33,7 @@ const Login = () => {
       <div className='container-2'>
       <form id="login" onSubmit={handleSubmit}>
         <p className='error'>{ error}</p>
+              <h3>Login Details</h3>
               <label className='lab'>Username</label>
               <input type="text" name='username' onChange={handleChange} required/>
               <label className='lab' htmlFor="password">Password</label>
