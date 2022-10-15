@@ -94,7 +94,7 @@ const Signup = () => {
             onChange={onChange}
           />
         ))}
-        <button type="submit">
+        <button className="button" type="submit">
           Submit
         </button>
       </form>
