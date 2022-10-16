@@ -30,6 +30,7 @@ function BloggerWithComments(){
       })
   },[])
 
+  console.log(comments)
   const onAddComment= (newComment)=>{
     let updatedState = [...comments, newComment]
     setComments(updatedState.reverse());
