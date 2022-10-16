@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 import './Login.css'
 
-const Login = () => {
+const Login = ({onLogin}) => {
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -25,7 +25,7 @@ const Login = () => {
     }).then((r) => {
       if (r.ok) {
          navigate("/");
-        r.json().then(data => console.log(data.body.id))
+        r.json().then(data => onLogin(data.body.id))
       } else {
         r.json().then((err) => setError(err.message));
       }

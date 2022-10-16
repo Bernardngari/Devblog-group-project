@@ -5,7 +5,7 @@ import Home from './Component/Home';
 import Signup from './Component/Signup';
 import Login from './Component/Login';
 import BloggerWithComments from './Component/BloggerWithComments';
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
 import CreateBlog from './Component/CreateBlog';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
          <Route exact path="/" element={<Home  onLogin={onLogin}/>} />
          <Route exact path="/signup" element={<Signup />} />
          <Route exact path="/login" element={<Login />} />
-         <Route exact path="/blogs/:id" element={<BloggerWithComments />} />
+         <Route exact path="/blogs/:id" element={<BloggerWithComments onDeleteBlog={onDeleteBlog} loggedInUser={auth}/>} />
          <Route exact path="/create-blog" element={<CreateBlog />} />
          <Route exact path="/logout" element={<Login />} />
        </Routes>
