@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   def index
     comments = Comment.all
-    render json: comments, status: :ok
+    render json: comments, include: [:blogger],status: :ok
   end
 
   def show
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     render json: {errors: invalid.record.errors}, status: :unprocessable_entity
   end
   def comment_params
-    params.permit(:comment, :blogger_id, :blog_id)
+    params.permit(:comment, :blog_id)
   end
 
 
