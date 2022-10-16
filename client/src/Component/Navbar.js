@@ -19,9 +19,7 @@ function Navbar({onLogout,auth}) {
         <Link className="navLink" to="/signup">
           Sign up
         </Link>
-        <Link className="navLink" to="/login">
-          Login
-        </Link>
+        {auth? <Link to="/login" className='navLink' onClick={handleLogout}>Logout</Link>: <Link className='navLink' to="/login">Login</Link>}
         <Link className="navLink" to="/create-blog">
           Add Blog
         </Link>

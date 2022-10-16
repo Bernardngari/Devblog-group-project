@@ -11,7 +11,6 @@ import CreateBlog from './Component/CreateBlog';
 function App() {
   const [auth, setAuth] = useState(0)
   const [logout, setLogout] = useState(false)
-  const [deletedblog, setDeletedBlog] = useState({})
   function onLogout(){
     setLogout(()=>!logout)
     setAuth(0)
@@ -31,11 +30,12 @@ function App() {
       <Router>
       <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
-         <Route exact path="/" element={<Home />} />
+         <Route exact path="/" element={<Home  onLogin={onLogin}/>} />
          <Route exact path="/signup" element={<Signup />} />
          <Route exact path="/login" element={<Login />} />
          <Route exact path="/blogs/:id" element={<BloggerWithComments />} />
          <Route exact path="/create-blog" element={<CreateBlog />} />
+         <Route exact path="/logout" element={<Login />} />
        </Routes>
      </Router>
    </div>
