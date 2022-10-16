@@ -20,7 +20,6 @@ function Home({onLogin,logout,auth}) {
     .then(res=>res.json())
     .then((data) => onLogin(data.id))
   },[])
-  
 
   return (
     <section>
@@ -36,7 +35,6 @@ function Home({onLogin,logout,auth}) {
             </div>
         ))}
       </div>
-  
     </section>
   );
 }

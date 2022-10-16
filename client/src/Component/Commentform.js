@@ -22,6 +22,7 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
       })
       .then((res) =>res.json())
       .then(data => onAddComment(data))
+      .catch(error => alert(error))
       setShowAdd(()=>!showAdd)
     }
 

@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
 import capitalize from './capitalize';
 import Comment from './Comment';
 import Editblog from './Editblog';
+import Deleteblog from './Deleteblog';
 
 
-function BloggerWithComments({loggedInUser}){
+function BloggerWithComments({loggedInUser, onDeleteBlog}){
   const {id} = useParams();
   const [blog, setBlog]= useState({});
   const [comments, setComments] = useState([])
@@ -54,15 +55,19 @@ function BloggerWithComments({loggedInUser}){
     let updatedState = [...comments, newComment]
     setComments(updatedState.reverse());
   }
+
+  
+  
   return (
     <div className="container-1">
           <div key={blog.id}>
             <p className="title">{blog.title}</p>
             <p>{blog.content}</p>
-            <p><strong>Written by: {capitalize(name)}</strong> {loggedInUser === blogOwner? "Edit":null}</p>
+            <p><strong>Written by: {capitalize(name)}</strong></p>
             <div className='wrap'>
                 <Createcomment id={blog.id} onAddComment={onAddComment}/>
                 {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id} onEditBlog={onEditBlog}/> : null}
+                {loggedInUser === blogOwner ? <Deleteblog id={blog.id} onDeleteBlog={onDeleteBlog} /> : null}
             </div>
               <Comment comments={comments} onEditComment={onEditComment} loggedInUser={loggedInUser} OnDeleteComment={OnDeleteComment}/>
           </div>

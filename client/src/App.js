@@ -10,6 +10,7 @@ import { useState, useEffect} from 'react';
 function App() {
   const [auth, setAuth] = useState(0)
   const [logout, setLogout] = useState(false)
+  const [deletedblog, setDeletedBlog] = useState({})
   function onLogout(){
     setLogout(()=>!logout)
     setAuth(0)
@@ -17,6 +18,10 @@ function App() {
 
   function onLogin(id){
     setAuth(id) 
+  }
+
+  const onDeleteBlog= () =>{
+    window.location.reload()
   }
     
  return (
@@ -27,7 +32,7 @@ function App() {
       <Route exact path="/" element={<Home onLogin={onLogin} logout={logout} auth={auth}/>} />
        <Route exact path="/signup" element={<Signup/>}/> 
       <Route exact path="/login" element={<Login/>}/>
-      <Route exact path="/blogs/:id" element={<BloggerWithComments loggedInUser={auth}/>} />
+      <Route exact path="/blogs/:id" element={<BloggerWithComments deletedblog={deletedblog} loggedInUser={auth} onDeleteBlog={onDeleteBlog}/>} />
    </Routes>
    </Router> 
    </div>

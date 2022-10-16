@@ -9,27 +9,18 @@ class CommentsController < ApplicationController
 
   def show
     comment = Comment.find(params[:id])
-    render json: comment
+    render json: comment, status: :ok
   end
-  #Tony
-  #def create
-  #  comment = Comment.create!(comment_params)
-  #  render json: comment, status: :created
-  #end
-  #Bernard
+  
   def create
-    #blogger = Blogger.find(session[:blogger_id])
-    #blog = Blog.find(params[:id])
-    #comment = blogger.comments.create!(comment_params)
     comment = Comment.create!(blog_id: params[:blog_id], comment: params[:comment], blogger_id: session[:blogger_id])
-    #comment = Comment.create!(comment_params)
-    render json: comment, status: :created
+      render json: comment, status: :created
   end
 
   def update
     comment = Comment.find(params[:id])
     comment.update!(comment_params)
-    render json: comment
+    render json: comment, status: :ok
   end
 
   def destroy
@@ -43,8 +34,8 @@ class CommentsController < ApplicationController
     render json: {error: "Comments not found"}, status: :not_found
   end
 
-  def render_unprocessable_entity_response(invalid)
-    render json: {errors: invalid.record.errors}, status: :unprocessable_entity
+  def render_unprocessable_entity_response(exception)
+    render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
   end
   def comment_params
     params.permit(:comment, :blogger_id, :blog_id)
