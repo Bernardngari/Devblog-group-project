@@ -1,23 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
 import UpdateComent from './updatecoment';
-
-
-function Comment({ comments }) {
-
-  const [show, setShow] = useState(false);
-   
-  
-  function handleClick(comentId) {
-    // e.preventDefault()
-    fetch(`/comments/${comentId}`)
-      .then(r => r.json())
-    .then(data => console.log(data))
-    // console.log(comentId)
-    setShow(!show)
-  }
-
-
+import DeleteComment from './DeleteComment';
+function Comment({ comments, onEditComment,loggedInUser}) {
   return (
     <section>
       {comments.map((comment) => (
@@ -26,17 +10,10 @@ function Comment({ comments }) {
             <strong>{comment.blogger.username}</strong>
           </p>
           <p>{comment.comment}</p>
-          {show ? <UpdateComent comment={comment}/> : null}
-          <div className="btn">
-            <input
-              type="submit"
-              value="edit"
-              className="edit"
-              onClick={() => handleClick(comment.id)}
-            />
-            <input type="submit" value="delete" className="delete" />
-          </div>
+          {loggedInUser === comment.blogger.id ? <UpdateComent comment={comment} id={comment.id} onEditComment={onEditComment}/> : null}
+          {loggedInUser === comment.blogger.id ? <DeleteComment id={comment.id}/> : null} 
         </div>
+        
       ))}
     </section>
   );

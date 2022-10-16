@@ -33,10 +33,20 @@ function BloggerWithComments({loggedInUser}){
       .catch((e) =>{
         console.log(e.message);
       })
-  },[])
+  },[comments])
+
+  function onEditComment(edittedComment){
+    let filtered = comments.filter((comment)=> comment.id ===edittedComment.id)
+    let updated = [...filtered, edittedComment]
+    setComments(updated)
+  }
+
+  function OnDeleteComment(deletedComment){
+    let updated = comments.filter((comment) => comment.id !== deletedComment.id)
+    setComments(updated)
+  }
 
   const onEditBlog= (editedBlog)=>{
-    //let updatedState = {...blog, editedBlog}
     setBlog(editedBlog);
   }
 
@@ -54,7 +64,7 @@ function BloggerWithComments({loggedInUser}){
                 <Createcomment id={blog.id} onAddComment={onAddComment}/>
                 {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id} onEditBlog={onEditBlog}/> : null}
             </div>
-              <Comment comments={comments}/>
+              <Comment comments={comments} onEditComment={onEditComment} loggedInUser={loggedInUser} OnDeleteComment={OnDeleteComment}/>
           </div>
       </div>
   )

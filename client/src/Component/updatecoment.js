@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
+import Login from './Login';
 
-const UpdateComent = ({comment}) => {
+const UpdateComent = ({comment, id, onEditComment}) => {
 
     const [content, setContent] = useState(comment.comment)
+    const [showButton, setShow] = useState(true);
+
+    const toggleShow= ()=>{
+      setShow(()=>!showButton)
+    }
     
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`/comments/${comment.id}`, {
+        fetch(`/comments/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type":"application/json"
@@ -15,20 +21,27 @@ const UpdateComent = ({comment}) => {
                 "comment":content
             })
         })
+        .then(res=> res.json())
+        .then(edittedComment =>onEditComment(edittedComment))
         setContent("")
+        setShow(()=>!showButton)
     }
 
   return (
     <div>
+      {showButton?
+      <button onClick={toggleShow} id={id}>Edit</button>
+      :
       <form onSubmit={handleSubmit}>
         <textarea
-          name="body"
-          id=""
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
+          name="comment"
+          defaultValue={content}
+          onChange={(e) => setContent(e.target.value)}
         />
         <input type="submit" value="Save change" />
       </form>
+
+      }
     </div>
   );
 }
