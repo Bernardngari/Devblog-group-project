@@ -40,7 +40,7 @@ body {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #663399;
+    background: rgb(72, 72, 151);
     width: 100%;
     border: 0;
     padding: 15px;
