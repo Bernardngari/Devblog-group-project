@@ -7,6 +7,8 @@ import Login from './Component/Login';
 import BloggerWithComments from './Component/BloggerWithComments';
 import { useState, useEffect} from 'react';
 
+import { LoginContext } from './Helper/Context';
+
 function App() {
   const [auth, setAuth] = useState(0)
   const [logout, setLogout] = useState(false)
@@ -17,9 +19,11 @@ function App() {
   function onLogin(id){
     setAuth(id) 
   }
+
+  const [loggedIn, setLoggedIn] = useState(false)
     
  return (
-   <div>
+   <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
       <Router>
       <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
@@ -29,7 +33,7 @@ function App() {
       <Route exact path="/blogs/:id" element={<BloggerWithComments loggedInUser={auth}/>} />
    </Routes>
    </Router> 
-   </div>
+   </LoginContext.Provider>
  );
 }
 export default App;

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
+
+import { LoginContext } from '../Helper/Context';
+
 const Login = () => {
+
+ const {loggedIn, setLoggedIn} = useContext(LoginContext)
+
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -22,6 +28,7 @@ const Login = () => {
       body: JSON.stringify(values),
     }).then((r) => {
       if (r.ok) {
+        setLoggedIn(true)
          navigate("/");
         r.json().then(data => console.log(data.body.id))
       } else {
