@@ -25,7 +25,7 @@ function Home({onLogin,logout,auth}) {
   return (
     <section>
       {!showWarning ?
-       <p className="guest" onClick={toggleWarning}>{auth? null: "Browsing in guest mode. Please Login  x" }</p>
+       <p className="guest" onClick={toggleWarning}>{auth? null: "Browsing in guest mode. Some functions will be disabled. Please Login  x" }</p>
         : null}
       <div className="container-1">
         {blogs.map((blog) =>(
