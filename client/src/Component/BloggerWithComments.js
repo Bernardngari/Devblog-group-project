@@ -12,6 +12,7 @@ function BloggerWithComments({loggedInUser}){
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [blogOwner, setId] = useState("")
+  
   const fetchData = async () => {
     const response = await fetch(`/blogs/${id}`)
     if (!response.ok) {

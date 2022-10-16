@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logout from './Logout';
+import { Link} from 'react-router-dom';
 function Navbar({onLogout,auth}) {
+  function handleLogout(){
+    fetch("/logout", {
+      method: "DELETE"
+    })
+    onLogout()
+  }
   
   console.log(auth);
   return (
@@ -10,8 +15,7 @@ function Navbar({onLogout,auth}) {
       <div className='navCont'>
         <Link className='navLink' to="/" >Home</Link>
         <Link className='navLink' to="/signup" >Sign up</Link> 
-        {/*<Link className='navLink' to={auth? "/logout" : "/login"} >{auth? "Logout" : "Login"}</Link>*/}
-        {auth? <Logout onLogout={onLogout} />: <Link to="/login">Login</Link> }
+        {auth? <Link to="/login" className='navLink' onClick={handleLogout}>Logout</Link>: <Link className='navLink' to="/login">Login</Link>}
       </div>
       </div>
   );

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-function Home({onLogin,logout}) {
+function Home({onLogin,logout,auth}) {
   const [blogs, setBlogs]= useState([]);
-  const [name, setName] = useState("")
-  //const navigate = useNavigate();
+  const [showWarning, setWarning] = useState(false)
+  const toggleWarning =()=>{
+    setWarning(()=>!showWarning)
+  }
   useEffect (() => {
     fetch("http://127.0.0.1:3000/blogs")
     .then((response) => response.json())
@@ -22,8 +24,9 @@ function Home({onLogin,logout}) {
 
   return (
     <section>
-    
-      <h1>Welcome to Devblog</h1>
+      {!showWarning ?
+       <p className="guest" onClick={toggleWarning}>{auth? null: "Browsing in guest mode. Please Login  x" }</p>
+        : null}
       <div className="container-1">
         {blogs.map((blog) =>(
           <div key={blog.id}>

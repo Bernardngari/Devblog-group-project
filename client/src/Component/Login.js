@@ -36,7 +36,7 @@ const Login = () => {
       <div className="login">
       <form className="form" id="login" onSubmit={handleSubmit}>
       <p>Login</p>
-        <p>{ error}</p>
+        <p className='error'>{ error}</p>
               <div className="label"><label>Username</label></div>
               <input type="text" placeholder="username" name='username' onChange={handleChange} required/>
               <div className="label"><label htmlFor="password">Password</label></div>

@@ -12,6 +12,7 @@ function App() {
   const [logout, setLogout] = useState(false)
   function onLogout(){
     setLogout(()=>!logout)
+    setAuth(0)
   }
 
   function onLogin(id){
@@ -23,7 +24,7 @@ function App() {
       <Router>
       <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
-      <Route exact path="/" element={<Home onLogin={onLogin} logout={logout}/>} />
+      <Route exact path="/" element={<Home onLogin={onLogin} logout={logout} auth={auth}/>} />
        <Route exact path="/signup" element={<Signup/>}/> 
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/blogs/:id" element={<BloggerWithComments loggedInUser={auth}/>} />
