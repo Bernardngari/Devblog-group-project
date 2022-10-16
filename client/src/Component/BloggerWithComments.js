@@ -35,6 +35,11 @@ function BloggerWithComments({loggedInUser}){
       })
   },[])
 
+  const onEditBlog= (editedBlog)=>{
+    //let updatedState = {...blog, editedBlog}
+    setBlog(editedBlog);
+  }
+
   const onAddComment= (newComment)=>{
     let updatedState = [...comments, newComment]
     setComments(updatedState.reverse());
@@ -47,7 +52,7 @@ function BloggerWithComments({loggedInUser}){
             <p><strong>Written by: {capitalize(name)}</strong> {loggedInUser === blogOwner? "Edit":null}</p>
             <div className='wrap'>
                 <Createcomment id={blog.id} onAddComment={onAddComment}/>
-                {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id}/> : null}
+                {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id} onEditBlog={onEditBlog}/> : null}
             </div>
               <Comment comments={comments}/>
           </div>

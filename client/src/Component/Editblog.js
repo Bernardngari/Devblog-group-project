@@ -15,7 +15,6 @@ function Editblog({blog, onEditBlog, blogOwner,id}) {
   console.log(blogdata);
 
   const handleSubmit = (e) =>{
-    alert(true)
     e.preventDefault();
     fetch(`/blogs/${id}`,{
       method: "PATCH",
