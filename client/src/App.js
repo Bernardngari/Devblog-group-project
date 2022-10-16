@@ -6,6 +6,7 @@ import Signup from './Component/Signup';
 import Login from './Component/Login';
 import BloggerWithComments from './Component/BloggerWithComments';
 import { useState, useEffect} from 'react';
+import CreateBlog from './Component/CreateBlog';
 
 function App() {
   const [auth, setAuth] = useState(0)
@@ -15,7 +16,7 @@ function App() {
     setLogout(()=>!logout)
     setAuth(0)
   }
-import CreateBlog from './Component/CreateBlog';
+
 
   function onLogin(id){
     setAuth(id) 
