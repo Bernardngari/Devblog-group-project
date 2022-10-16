@@ -10,14 +10,23 @@ function Navbar({onLogout,auth}) {
   
   console.log(auth);
   return (
-    <div className='navBar'>
+    <div className="navBar">
       <h2>Devblog</h2>
-      <div className='navCont'>
-        <Link className='navLink' to="/" >Home</Link>
-        <Link className='navLink' to="/signup" >Sign up</Link> 
-        {auth? <Link to="/login" className='navLink' onClick={handleLogout}>Logout</Link>: <Link className='navLink' to="/login">Login</Link>}
+      <div>
+        <Link className="navLink" to="/">
+          Home
+        </Link>
+        <Link className="navLink" to="/signup">
+          Sign up
+        </Link>
+        <Link className="navLink" to="/login">
+          Login
+        </Link>
+        <Link className="navLink" to="/create-blog">
+          Add Blog
+        </Link>
       </div>
-      </div>
+    </div>
   );
 }
 

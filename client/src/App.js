@@ -15,6 +15,7 @@ function App() {
     setLogout(()=>!logout)
     setAuth(0)
   }
+import CreateBlog from './Component/CreateBlog';
 
   function onLogin(id){
     setAuth(id) 
@@ -29,12 +30,13 @@ function App() {
       <Router>
       <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
-      <Route exact path="/" element={<Home onLogin={onLogin} logout={logout} auth={auth}/>} />
-       <Route exact path="/signup" element={<Signup/>}/> 
-      <Route exact path="/login" element={<Login/>}/>
-      <Route exact path="/blogs/:id" element={<BloggerWithComments deletedblog={deletedblog} loggedInUser={auth} onDeleteBlog={onDeleteBlog}/>} />
-   </Routes>
-   </Router> 
+         <Route exact path="/" element={<Home />} />
+         <Route exact path="/signup" element={<Signup />} />
+         <Route exact path="/login" element={<Login />} />
+         <Route exact path="/blogs/:id" element={<BloggerWithComments />} />
+         <Route exact path="/create-blog" element={<CreateBlog />} />
+       </Routes>
+     </Router>
    </div>
  );
 }
