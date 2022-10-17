@@ -108,15 +108,24 @@ body {
 }
 
 .comment{
-  background-color:rgb(72 72 151);
+  background-color: antiquewhite;
   width: 80px;
   height: 30px;
   text-align: center;
+  font-weight: 600;
   font-size: 15px;
-  color: antiquewhite;
+  color: rgb(72 72 151);
   padding: 5px;
-  border-radius: 10px;
+  border: none;
+  /*border-radius: 10px;*/
   margin: 5px;
+}
+
+.comment:hover{
+  background-color: gray;
+  color: white;
+  font-weight: 600;
+  
 }
 
 .reply{
