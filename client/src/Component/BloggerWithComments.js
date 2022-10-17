@@ -61,7 +61,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   
   return (
     <div className="container-1">
-          <div key={blog.id}>
+          <div key={blog.id} >
             <p className="title">{blog.title}</p>
             <p>{blog.content}</p>
             <p><strong>Written by: @{capitalize(name)}</strong></p>

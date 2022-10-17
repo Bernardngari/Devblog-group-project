@@ -93,6 +93,7 @@ body {
 .error{
   color: red;
   font-weight: 600;
+  
 }
 
 .lab{
@@ -168,12 +169,34 @@ body {
 .react-confirm-alert-{
   position: relative;
   top: 50%;
-
 }
+
 .react-confirm-alert-button-group button:first-child{
   color: red;
   font-weight: 600;
 }
+
+.flexCommentButtons{
+  display: flex;
+  flex-direction: row;
+}
+
+.commentDiv{
+  border-bottom: dotted black 2px;
+}
+
+.commentDiv:last-child{
+  border-bottom: dotted rgb(72 72 151) 5px;
+}
+
+input[type="search"]{
+  width: 50%;
+  border: 2px solid rgb(72 72 151);
+  border-radius: 10px;
+}
+
+
+
 
 
 

@@ -25,7 +25,7 @@ const UpdateComent = ({comment, id, onEditComment}) => {
   return (
     <div>
       {showButton?
-      <button onClick={toggleShow} id={id}>Edit</button>
+      <button onClick={toggleShow} id={id} className='comment'>Edit</button>
       :
       <form onSubmit={handleSubmit}>
         <textarea

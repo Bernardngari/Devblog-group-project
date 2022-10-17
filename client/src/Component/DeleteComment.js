@@ -32,7 +32,7 @@ function DeleteComment({id,OnDeleteComment}) {
 	}
   return (
     <div>
-      <button onClick={submit} id={id}>Delete</button>
+      <button onClick={submit} id={id} className='comment'>Delete</button>
     </div>
   )
 }
