@@ -10,7 +10,7 @@ function Createcomment({id, onAddComment,loggedInUser}) {
     <div>
       {showAdd? 
       <div>
-        {loggedInUser? <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)} >reply</button> 
+        {loggedInUser? <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)} >respond</button> 
         :
         <> 
         <button className='comment' id={id} onMouseEnter={()=>setShowError(!error)} >reply</button> 

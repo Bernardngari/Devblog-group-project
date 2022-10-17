@@ -140,6 +140,14 @@ body {
 .addComment{
   display: flex;
   flex-direction: column;
+  border: 2px solid rgb(72 72 151);
+  border-radius: 5px;
+}
+
+.addComment button:hover{
+  color: rgb(72 72 151);
+  background-color: white;
+  font-weight: 500;
 }
 
 .logout{
@@ -194,6 +202,8 @@ input[type="search"]{
   border: 2px solid rgb(72 72 151);
   border-radius: 10px;
 }
+
+
 
 
 
