@@ -26,14 +26,16 @@ function Editblog({blog, onEditBlog,id}) {
       .then(obj => onEditBlog(obj))
       setShow(()=> !showButton)
   }
+
+  const leaveForm =()=>{
+    setShow(()=>!showButton)
+  }
   return (
     <div>
     {showButton?
     <button onClick={toggleButton} className="comment">EDIT</button>
     :
-    <form onSubmit={handleSubmit} className="editform">
-			<label htmlFor="title"><strong style={{color:"white"}}>Change Blog title</strong></label>
-			<br />
+    <form onSubmit={handleSubmit} className="editform" onMouseLeave={leaveForm}>
 			<input type="text" 
 				defaultValue={blogdata.title}
 				name="title"
@@ -50,7 +52,7 @@ function Editblog({blog, onEditBlog,id}) {
 				onChange={handleChange}
 			/>
 			<br />
-			<button type="submit">Submit</button>
+			<input type="submit"  value="Submit"/>
 		</form>
       
     }

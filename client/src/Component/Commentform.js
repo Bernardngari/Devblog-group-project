@@ -25,13 +25,17 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
       .catch(error => (error))
       setShowAdd(()=>!showAdd)
     }
+
+    const leaveForm = ()=>{
+      setShowAdd(()=>!showAdd)
+    }
   return (
-    <form onSubmit={handleSubmit} className='addComment'>
+    <form onSubmit={handleSubmit} className='addComment' onMouseLeave={leaveForm}>
       <input type='text'
         name="comment"
         onChange={handleChange} 
         value={reply.comment}
-        placeholder="Held hostage?..start typing"
+        placeholder="Type your response..."
       />
       {reply.comment.length ===0? <button className='btn1' disabled>{reply.comment.length===0 ? "typing..." : "Submit"}</button> : <button className='btn1'>Submit</button>}
     </form>
