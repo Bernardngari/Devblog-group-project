@@ -25,12 +25,8 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
       .catch(error => (error))
       setShowAdd(()=>!showAdd)
     }
-
-    const leaveForm = ()=>{
-      setShowAdd(()=>!showAdd)
-    }
   return (
-    <form onSubmit={handleSubmit} className='addComment' onMouseLeave={leaveForm}>
+    <form onSubmit={handleSubmit} className='addComment'>
       <input type='text'
         name="comment"
         onChange={handleChange} 
