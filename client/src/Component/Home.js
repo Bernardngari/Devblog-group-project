@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-function Home({onLogin,logout,auth}) {
+function Home({logout,auth}) {
   const [blogs, setBlogs]= useState([]);
   const [showWarning, setWarning] = useState(false)
   const toggleWarning =()=>{
@@ -14,17 +14,11 @@ function Home({onLogin,logout,auth}) {
       setBlogs(blogs)
     });
   }, [logout]);
-
-  useEffect(()=>{
-    fetch("/me")
-    .then(res=>res.json())
-    .then((data) => onLogin(data.id))
-  },[])
-
+  
   return (
     <section>
       {!showWarning ?
-       <p className="guest" onClick={toggleWarning}>{auth? null: "Browsing in guest mode. Some functions will be disabled. Please Login  x" }</p>
+       <p className="guest" onClick={toggleWarning}>{auth? null: <p>Browsing in guest mode. Some functions will be disabled. Please Login </p>}</p>
         : null}
       <div className="container-1">
         {blogs.map((blog) =>(

@@ -5,21 +5,26 @@ import Home from './Component/Home';
 import Signup from './Component/Signup';
 import Login from './Component/Login';
 import BloggerWithComments from './Component/BloggerWithComments';
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import CreateBlog from './Component/CreateBlog';
+import "react-confirm-alert/src/react-confirm-alert.css"
+
 
 function App() {
   const [auth, setAuth] = useState(0)
-  const [logout, setLogout] = useState(false)
   function onLogout(){
-    setLogout(()=>!logout)
     setAuth(0)
+    //window.location.reload()
   }
 
-
-  function onLogin(id){
-    setAuth(id) 
+  const onLogin =(id)=>{
+    setAuth(id)
   }
+  useEffect(()=>{
+    fetch("/me")
+    .then(res=>res.json())
+    .then((data) => setAuth(data.id))
+  },[])
 
   const onDeleteBlog= () =>{
     window.location.reload()
@@ -30,9 +35,9 @@ function App() {
       <Router>
       <Navbar onLogout={onLogout} auth={auth}/>
        <Routes>
-         <Route exact path="/" element={<Home  onLogin={onLogin}/>} />
+         <Route exact path="/" element={<Home auth={auth}/>} />
          <Route exact path="/signup" element={<Signup />} />
-         <Route exact path="/login" element={<Login />} />
+         <Route exact path="/login" element={ <Login onLogin={onLogin} />} />
          <Route exact path="/blogs/:id" element={<BloggerWithComments onDeleteBlog={onDeleteBlog} loggedInUser={auth}/>} />
          <Route exact path="/create-blog" element={<CreateBlog />} />
          <Route exact path="/logout" element={<Login />} />

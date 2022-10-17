@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Editblog({blog, onEditBlog, blogOwner,id}) {
+function Editblog({blog, onEditBlog,id}) {
   const [blogdata, setBlogData] = useState(blog);
   const [showButton, setShow] = useState(true);
 
@@ -29,7 +29,7 @@ function Editblog({blog, onEditBlog, blogOwner,id}) {
   return (
     <div>
     {showButton?
-    <button onClick={toggleButton}>EDIT</button>
+    <button onClick={toggleButton} className="comment">EDIT</button>
     :
     <form onSubmit={handleSubmit} className="editform">
 			<label htmlFor="title"><strong style={{color:"white"}}>Change Blog title</strong></label>

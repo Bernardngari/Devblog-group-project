@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import Login from './Login';
+//import Login from './Login';
 
 const UpdateComent = ({comment, id, onEditComment}) => {
-
     const [content, setContent] = useState(comment.comment)
     const [showButton, setShow] = useState(true);
-
     const toggleShow= ()=>{
       setShow(()=>!showButton)
     }
-    
     function handleSubmit(e) {
         e.preventDefault()
         fetch(`/comments/${id}`, {
@@ -23,10 +20,8 @@ const UpdateComent = ({comment, id, onEditComment}) => {
         })
         .then(res=> res.json())
         .then(edittedComment =>onEditComment(edittedComment))
-        setContent("")
         setShow(()=>!showButton)
     }
-
   return (
     <div>
       {showButton?

@@ -7,8 +7,6 @@ function Navbar({onLogout,auth}) {
     })
     onLogout()
   }
-  
-  console.log(auth);
   return (
     <div className="navBar">
       <h2>Devblog</h2>
@@ -16,13 +14,21 @@ function Navbar({onLogout,auth}) {
         <Link className="navLink" to="/">
           Home
         </Link>
-        <Link className="navLink" to="/signup">
+        {auth ?
+         null
+         :
+         <Link className="navLink" to="/signup">
           Sign up
         </Link>
+         }
         {auth? <Link to="/login" className='navLink' onClick={handleLogout}>Logout</Link>: <Link className='navLink' to="/login">Login</Link>}
+        {auth ?
         <Link className="navLink" to="/create-blog">
-          Add Blog
-        </Link>
+        Add Blog
+      </Link>
+      :
+      null
+      }
       </div>
     </div>
   );

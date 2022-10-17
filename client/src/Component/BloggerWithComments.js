@@ -14,6 +14,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [blogOwner, setId] = useState("")
+  //const [showComments, setShowComments] = useState(false)
   
   const fetchData = async () => {
     const response = await fetch(`/blogs/${id}`)
@@ -37,7 +38,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   },[comments])
 
   function onEditComment(edittedComment){
-    let filtered = comments.filter((comment)=> comment.id ===edittedComment.id)
+    let filtered = comments.filter((comment)=> comment.id !== edittedComment.id)
     let updated = [...filtered, edittedComment]
     setComments(updated)
   }
@@ -53,7 +54,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
 
   const onAddComment= (newComment)=>{
     let updatedState = [...comments, newComment]
-    setComments(updatedState.reverse());
+    setComments(updatedState);
   }
 
   
@@ -63,9 +64,9 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
           <div key={blog.id}>
             <p className="title">{blog.title}</p>
             <p>{blog.content}</p>
-            <p><strong>Written by: {capitalize(name)}</strong></p>
+            <p><strong>Written by: @{capitalize(name)}</strong></p>
             <div className='wrap'>
-                <Createcomment id={blog.id} onAddComment={onAddComment}/>
+                <Createcomment id={blog.id} onAddComment={onAddComment} loggedInUser={loggedInUser}/>
                 {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id} onEditBlog={onEditBlog}/> : null}
                 {loggedInUser === blogOwner ? <Deleteblog id={blog.id} onDeleteBlog={onDeleteBlog} /> : null}
             </div>

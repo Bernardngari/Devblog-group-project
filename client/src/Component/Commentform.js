@@ -25,7 +25,6 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
       .catch(error => alert(error))
       setShowAdd(()=>!showAdd)
     }
-
   return (
     <form onSubmit={handleSubmit} className='addComment'>
       <input type='text'
@@ -33,7 +32,7 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
         onChange={handleChange} 
         value={reply.comment}
       />
-      <button className='btn1'>Submit</button>
+      {reply.comment.length ===0? <button className='btn1' disabled>{reply.comment.length===0 ? "typing..." : "Submit"}</button> : <button className='btn1'>Submit</button>}
     </form>
   )
 }

@@ -1,14 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
 import Commentform from './Commentform'
-function Createcomment({id, onAddComment}) {
-
+import { Link } from 'react-router-dom'
+function Createcomment({id, onAddComment,loggedInUser}) {
   const[showAdd, setShowAdd] = useState(true)
+  const [error, setShowError] = useState(false)
 
   return (
     <div>
       {showAdd? 
-      <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)}>reply</button> 
+      <div>
+        {loggedInUser? <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)} >reply</button> 
+        :
+        <> 
+        <button className='comment' id={id} onMouseEnter={()=>setShowError(!error)} >reply</button> 
+        {error?<p className='error'>You must <Link to="/login">Login</Link> to reply</p> : null}
+        </>
+        }
+      </div>
       : 
       <Commentform showAdd={showAdd} setShowAdd={setShowAdd} id={id} onAddComment={onAddComment}/>}
     </div>

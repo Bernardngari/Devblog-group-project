@@ -7,7 +7,7 @@ function Comment({ comments, onEditComment,loggedInUser}) {
       {comments.map((comment) => (
         <div key={comment.id}>
           <p>
-            <strong>{comment.blogger.username}</strong>
+            <strong>@{comment.blogger.username} says </strong>
           </p>
           <p>{comment.comment}</p>
           {loggedInUser === comment.blogger.id ? <UpdateComent comment={comment} id={comment.id} onEditComment={onEditComment}/> : null}
