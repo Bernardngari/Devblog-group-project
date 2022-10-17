@@ -1,7 +1,7 @@
 import React from 'react'
 import UpdateComent from './updatecoment';
 import DeleteComment from './DeleteComment';
-function Comment({ comments, onEditComment,loggedInUser}) {
+function Comment({ comments, onEditComment,loggedInUser, onDeleteComment}) {
   return (
     <section>
       {comments.map((comment) => (
@@ -12,7 +12,7 @@ function Comment({ comments, onEditComment,loggedInUser}) {
           <p>{comment.comment}</p>
           <div className='flexCommentButtons'>
             {loggedInUser === comment.blogger.id ? <UpdateComent comment={comment} id={comment.id} onEditComment={onEditComment}/> : null}
-            {loggedInUser === comment.blogger.id ? <DeleteComment id={comment.id}/> : null} 
+            {loggedInUser === comment.blogger.id ? <DeleteComment id={comment.id} onDeleteComment={onDeleteComment}/> : null} 
           </div>
           
         </div>

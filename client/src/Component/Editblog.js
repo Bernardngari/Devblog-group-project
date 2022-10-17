@@ -11,9 +11,6 @@ function Editblog({blog, onEditBlog,id}) {
   const toggleButton = () => {
     setShow(()=> !showButton)
   }
-
-  console.log(blogdata);
-
   const handleSubmit = (e) =>{
     e.preventDefault();
     fetch(`/blogs/${id}`,{

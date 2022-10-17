@@ -15,7 +15,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [blogOwner, setId] = useState("")
-  //const [showComments, setShowComments] = useState(false)
+  //const [deletion, setDeletion] = useState(false)
   
   const fetchData = async () => {
     const response = await fetch(`/blogs/${id}`)
@@ -33,10 +33,8 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
         setName(res.blogger.username)
         setId(res.blogger.id)
       })
-      .catch((e) =>{
-        console.log(e.message);
-      })
-  },[comments])
+      
+  },[])
 
   function onEditComment(edittedComment){
     let filtered = comments.filter((comment)=> comment.id !== edittedComment.id)
@@ -44,8 +42,8 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
     setComments(updated)
   }
 
-  function OnDeleteComment(deletedComment){
-    let updated = comments.filter((comment) => comment.id !== deletedComment.id)
+  function onDeleteComment(deletedComment){
+    let updated = comments.filter((comment) => comment.id != deletedComment)
     setComments(updated)
   }
 
@@ -72,7 +70,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
                 {loggedInUser === blogOwner? <Editblog blog={blog} blogOwner={blogOwner} id={blog.id} onEditBlog={onEditBlog}/> : null}
                 {loggedInUser === blogOwner ? <Deleteblog id={blog.id} onDeleteBlog={onDeleteBlog} /> : null}
             </div>
-              <Comment comments={comments} onEditComment={onEditComment} loggedInUser={loggedInUser} OnDeleteComment={OnDeleteComment}/>
+              <Comment comments={comments} onEditComment={onEditComment} loggedInUser={loggedInUser} onDeleteComment={onDeleteComment}/>
           </div>
       </div>
   )

@@ -1,17 +1,16 @@
 import React from 'react'
 import { confirmAlert } from 'react-confirm-alert'
 
-function DeleteComment({id,OnDeleteComment}) {
+function DeleteComment({id,onDeleteComment}) {
 
   function handleDelete(){
     fetch(`/comments/${id}`,{
-      method: "DELETE",
-      headers:{
+      "method": "DELETE",
+      "headers":{
         "Content-Type": "application/json"
       }
     })
-      .then(res =>res.json())
-      .then(deletedComment =>OnDeleteComment(deletedComment))
+    onDeleteComment(id)
   }
 
   function submit(){
