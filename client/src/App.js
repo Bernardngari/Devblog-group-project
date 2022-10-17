@@ -26,7 +26,7 @@ function App() {
   }
     
  return (
-   <div>
+   <div className='mainDiv'>
       <Router>
       <Navbar auth={auth} setAuth={setAuth}/>
        <Routes>

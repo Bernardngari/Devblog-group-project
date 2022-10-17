@@ -13,8 +13,8 @@ function Createcomment({id, onAddComment,loggedInUser}) {
         {loggedInUser? <button className='comment' id={id} onClick={()=>setShowAdd(()=>!showAdd)} >respond</button> 
         :
         <> 
-        <button className='comment' id={id} onMouseEnter={()=>setShowError(!error)} >reply</button> 
-        {error?<p className='error'>You must <Link to="/login">Login</Link> to reply</p> : null}
+        <button className='comment' id={id} onMouseEnter={()=>setShowError(!error)} >respond</button> 
+        {error?<p className='error'>You must <Link to="/login">Login</Link> to reply.</p> : null}
         </>
         }
       </div>

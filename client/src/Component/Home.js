@@ -31,7 +31,7 @@ function Home({logout,auth}) {
                   )))
   
   return (
-    <section>
+    <section className="xy">
       {!showWarning ?
        <p className="guest" onClick={toggleWarning}>{auth? null: "Browsing in guest mode. Some functions will be disabled. Please Login or click to hide. " }</p>
         : null}

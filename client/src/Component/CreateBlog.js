@@ -15,8 +15,6 @@ const CreateBlog = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(blog)
-
         fetch("/blogs", {
           method: "POST",
           headers: {
@@ -29,18 +27,38 @@ const CreateBlog = () => {
           } else {
             r.json().then((err) => setErrors(err.errors));
           }
-        });
+        })
     }
 
-    console.log(errors)
-
+    const errorMessage = (errors.map((error, index)=>(
+      <ul>
+        <li className='error' key={index}>{error}</li>
+      </ul>
+    )))
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-              <input type="text" name='title' value={blog.title} onChange={handleChange}/> <br /> <br />
-              <textarea name="content" value={blog.content} onChange={handleChange}></textarea> <br /> <br />
-        <input type="submit" value="Post Blog" />
-      </form>
+    <div className='containCreateForm'>
+      {errors.length > 0?  errorMessage : null}
+      <form onSubmit={handleSubmit} className="addForm" >
+			<input type="text" 
+				defaultValue={blog.title}
+        placeholder="Enter Blog Title"
+				name="title"
+				onChange={handleChange}
+				 />
+			<br />
+			<label htmlFor='body' />
+			<textarea 
+				type="text" 
+        placeholder='Blog body goes here,  30 characters minimum'
+				rows="10"
+				columns="100"
+				defaultValue={blog.content}
+				name="content"
+				onChange={handleChange}
+			/>
+			<br />
+			<input type="submit"  value="Submit"/>
+		</form>
     </div>
   );
 }

@@ -31,12 +31,12 @@ body {
   .navBar { 
     position: fixed;  
     top: 0;  
-    left: 0;  
+    left: 0; 
     background-color: rgb(72, 72, 151); 
     width: 100%;   
     text-align: right; 
     padding: 5px 0; 
-    overflow: hidden;
+    /*overflow: hidden;*/
       
   }
   
@@ -201,6 +201,7 @@ input[type="search"]{
   width: 50%;
   border: 2px solid rgb(72 72 151);
   border-radius: 10px;
+  margin-top: 50px;
 }
 
 .editComment{
@@ -223,8 +224,17 @@ input[type="submit"]:hover{
 .editform textarea{
 	width: 99%;
 }
+.addForm textarea{
+	width: 99%;
+}
 
 .editform input[type="text"]{
+  width: 99%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.addForm input[type="text"]{
   width: 99%;
   border-radius: 5px;
   margin-bottom: 5px;
@@ -233,6 +243,37 @@ input[type="submit"]:hover{
 .editform input[type="submit"]{
   width: 25%;
   margin-left: 37.5%;
+}
+
+.addForm input[type="submit"]{
+  width: 25%;
+  margin-left: 37.5%;
+}
+
+.containCreateForm{
+  width: 100vw;
+}
+
+.containCreateForm ul{
+  margin: auto;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.addForm{
+  width: 50%;
+	height: fit-content;
+	background-color: #2A2A62;
+  margin: auto;
+}
+
+.mainDiv{
+  width: 100%;
+}
+
+.xy{
+  width: 70%;
+  margin-left: 10%;
 }
 
 
