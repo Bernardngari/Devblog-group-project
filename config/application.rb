@@ -9,8 +9,9 @@ Bundler.require(*Rails.groups)
 module Devblog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
     config.api_only = true
+    config.load_defaults 7.0
+    
     config.middleware.use ActionDispatch::Flash
 
     config.middleware.use ActionDispatch::Session::CookieStore
@@ -23,7 +24,7 @@ module Devblog
     config.middleware.use config.session_store, config.session_options
     config.middleware.use Rack::MethodOverride
     
-    config.middleware.insert_before 0, Rack::Cors do
+    Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
