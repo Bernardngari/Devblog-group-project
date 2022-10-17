@@ -6,6 +6,7 @@ import capitalize from './capitalize';
 import Comment from './Comment';
 import Editblog from './Editblog';
 import Deleteblog from './Deleteblog';
+import { Link } from 'react-router-dom';
 
 
 function BloggerWithComments({loggedInUser, onDeleteBlog}){
@@ -61,6 +62,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   
   return (
     <div className="container-1">
+      <div  className='backHome'><Link to="/">Back home</Link></div>
           <div key={blog.id} >
             <p className="title">{blog.title}</p>
             <p>{blog.content}</p>

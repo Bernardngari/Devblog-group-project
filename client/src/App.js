@@ -12,11 +12,6 @@ import "react-confirm-alert/src/react-confirm-alert.css"
 
 function App() {
   const [auth, setAuth] = useState(0)
-  function onLogout(){
-    setAuth(0)
-    window.location.reload()
-  }
-
   const onLogin =(id)=>{
     setAuth(id)
   }
@@ -33,7 +28,7 @@ function App() {
  return (
    <div>
       <Router>
-      <Navbar onLogout={onLogout} auth={auth} setAuth={setAuth}/>
+      <Navbar auth={auth} setAuth={setAuth}/>
        <Routes>
          <Route exact path="/" element={<Home auth={auth}/>} />
          <Route exact path="/signup" element={<Signup />} />
