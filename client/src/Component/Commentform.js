@@ -31,6 +31,7 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
         name="comment"
         onChange={handleChange} 
         value={reply.comment}
+        placeholder="Held hostage?..start typing"
       />
       {reply.comment.length ===0? <button className='btn1' disabled>{reply.comment.length===0 ? "typing..." : "Submit"}</button> : <button className='btn1'>Submit</button>}
     </form>

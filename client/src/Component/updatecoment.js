@@ -27,7 +27,7 @@ const UpdateComent = ({comment, id, onEditComment}) => {
       {showButton?
       <button onClick={toggleShow} id={id} className='comment'>Edit</button>
       :
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='editComment'>
         <textarea
           name="comment"
           defaultValue={content}

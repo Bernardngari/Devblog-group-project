@@ -203,6 +203,15 @@ input[type="search"]{
   border-radius: 10px;
 }
 
+.editComment{
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="submit"]:hover{
+  background-color:rgb(220, 142, 40) ;
+}
+
 
 
 
