@@ -43,7 +43,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   }
 
   function onDeleteComment(deletedComment){
-    let updated = comments.filter((comment) => comment.id != deletedComment)
+    let updated = comments.filter((comment) => comment.id !== deletedComment)
     setComments(updated)
   }
 
