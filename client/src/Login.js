@@ -15,8 +15,10 @@ const Login = () => {
   }
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("/login", {
+    fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
+      mode: "cors",
+      credentials: true,
       headers: {
         "Content-Type": "application/json",
       },
