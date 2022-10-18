@@ -22,7 +22,7 @@ module Devblog
 
   config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'https://devbugger.vercel.app', 'devbugger.vercel.app','http://localhost:4000'
+      origins 'https://devbugger.vercel.app'
       resource '*', :headers => :any,:credentials => true, :methods => [:get, :post,:delete, :patch]
     end
   end
