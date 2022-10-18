@@ -13,23 +13,12 @@ module Devblog
     config.api_only = true
     # This also configures session_options for use below
    config.session_store :cookie_store, key: '_interslice_session'
-
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore
   config.middleware.use ActionDispatch::Flash
   config.middleware.use config.session_store, config.session_options
   config.middleware.use Rack::MethodOverride
-    
-    Rails.application.config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins 'https://devbugger.vercel.app'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
-
-
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
