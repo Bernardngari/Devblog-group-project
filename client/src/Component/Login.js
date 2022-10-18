@@ -18,7 +18,6 @@ const Login = ({onLogin}) => {
     e.preventDefault()
     fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
