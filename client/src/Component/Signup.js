@@ -64,7 +64,7 @@ const Signup = () => {
 
     function HandleSubmit(e) {
         e.preventDefault()
-      fetch('/bloggers', {
+      fetch('https://devbugger.herokuapp.com/bloggers', {
         method: "POST",
         headers: {
           "Content-Type":"application/json"

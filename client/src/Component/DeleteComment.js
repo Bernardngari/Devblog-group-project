@@ -4,7 +4,7 @@ import { confirmAlert } from 'react-confirm-alert'
 function DeleteComment({id,onDeleteComment}) {
 
   function handleDelete(){
-    fetch(`/comments/${id}`,{
+    fetch(`https://devbugger.herokuapp.com/comments/${id}`,{
       "method": "DELETE",
       "headers":{
         "Content-Type": "application/json"

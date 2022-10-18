@@ -18,7 +18,7 @@ function BloggerWithComments({loggedInUser, onDeleteBlog}){
   //const [deletion, setDeletion] = useState(false)
   
   const fetchData = async () => {
-    const response = await fetch(`/blogs/${id}`)
+    const response = await fetch(`https://devbugger.herokuapp.com/blogs/${id}`)
     if (!response.ok) {
       throw new Error('Data could not be fetched!')
     } else {

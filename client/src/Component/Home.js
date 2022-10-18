@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-function Home({logout,auth}) {
+function Home({auth}) {
   const [blogs, setBlogs]= useState([]);
   const [showWarning, setWarning] = useState(false)
   const [searchValue, setSearch] = useState("")
@@ -9,12 +9,12 @@ function Home({logout,auth}) {
     setWarning(()=>!showWarning)
   }
   useEffect (() => {
-    fetch("http://127.0.0.1:3000/blogs")
+    fetch("https://devbugger.herokuapp.com/blogs")
     .then((response) => response.json())
     .then((blogs) => {
       setBlogs(blogs)
     });
-  }, [logout]);
+  }, []);
 
   const handleChange= (e)=>{
     setSearch(e.target.value)

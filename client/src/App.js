@@ -16,9 +16,9 @@ function App() {
     setAuth(id)
   }
   useEffect(()=>{
-    fetch("/me")
+    fetch("https://devbugger.herokuapp.com/me")
     .then(res=>res.json())
-    .then((data) => setAuth(data.id))
+    .then((user) => setAuth(user.id))
   },[])
 
   const onDeleteBlog= () =>{

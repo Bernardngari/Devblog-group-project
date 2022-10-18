@@ -16,7 +16,7 @@ const Login = ({onLogin}) => {
   const[error, setError] = useState("")
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("/login", {
+    fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

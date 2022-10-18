@@ -2,7 +2,7 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 function Navbar({auth, setAuth}) {
   function handleLogout(){
-    fetch("/logout", {
+    fetch("https://devbugger.herokuapp.com/logout", {
       method: "DELETE"
     })
     setAuth(0)

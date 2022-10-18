@@ -9,7 +9,7 @@ const UpdateComent = ({comment, id, onEditComment}) => {
     }
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`/comments/${id}`, {
+        fetch(`https://devbugger.herokuapp.com/comments/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type":"application/json"

@@ -15,7 +15,7 @@ const CreateBlog = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("/blogs", {
+        fetch("https://devbugger.herokuapp.com/blogs", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

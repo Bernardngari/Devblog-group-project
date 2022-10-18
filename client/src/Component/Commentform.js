@@ -13,7 +13,7 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
  
     function handleSubmit(e){
       e.preventDefault();
-      fetch("/comments",{
+      fetch("https://devbugger.herokuapp.com/comments",{
         method:"POST",
         headers:{
           "Content-Type": "application/json"

@@ -13,7 +13,7 @@ function Editblog({blog, onEditBlog,id}) {
   }
   const handleSubmit = (e) =>{
     e.preventDefault();
-    fetch(`/blogs/${id}`,{
+    fetch(`https://devbugger.herokuapp.com/blogs/${id}`,{
       method: "PATCH",
       headers:{
         "Content-Type": "application/json"
