@@ -18,7 +18,7 @@ const Login = () => {
     fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
       mode: "cors",
-      credentials: true,
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
