@@ -15,11 +15,11 @@ function App() {
   const onLogin =(id)=>{
     setAuth(id)
   }
-  useEffect(()=>{
-    fetch("https://devbugger.herokuapp.com/me")
-    .then(res=>res.json())
-    .then((user) => setAuth(user.id))
-  },[])
+  //useEffect(()=>{
+  //  fetch("https://devbugger.herokuapp.com/me")
+  //  .then(res=>res.json())
+  //  .then((user) => setAuth(user.id))
+  //},[])
 
   const onDeleteBlog= () =>{
     window.location.reload()

@@ -9,10 +9,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def me
-    blogger = Blogger.find(session[:blogger_id])
-    render json: blogger, serializer: MeSerializer, status: :ok
-  end
   
   def logout
     session.delete :blogger_id

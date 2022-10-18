@@ -9,7 +9,6 @@ Bundler.require(*Rails.groups)
 module Devblog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    
     config.load_defaults 7.0
     config.api_only = true
     config.middleware.insert_before 0, Rack::Cors do
@@ -19,12 +18,13 @@ module Devblog
       end
     end
     # This also configures session_options for use below
-    config.action_controller.forgery_protection_origin_check = false
    config.session_store :cookie_store, key: '_interslice_session'
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore
+  config.middleware.use ActionDispatch::Flash
   config.middleware.use config.session_store, config.session_options
+  config.middleware.use Rack::MethodOverride
 
   
     # Configuration for the application, engines, and railties goes here.
