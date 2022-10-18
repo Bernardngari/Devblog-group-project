@@ -9,7 +9,9 @@ function Home({auth}) {
     setWarning(()=>!showWarning)
   }
   useEffect (() => {
-    fetch("https://devbugger.herokuapp.com/blogs")
+    fetch("https://devbugger.herokuapp.com/blogs", {
+      mode: "cors"
+    })
     .then((response) => response.json())
     .then((blogs) => {
       setBlogs(blogs)
