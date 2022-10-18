@@ -18,8 +18,10 @@ const Login = ({onLogin}) => {
     e.preventDefault()
     fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
+        "Authorization" :`Bearer: ${token}`,
       },
       body: JSON.stringify(values),
     }).then((r) => {
