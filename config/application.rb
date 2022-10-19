@@ -18,11 +18,11 @@ module Devblog
       end
     end
     # This also configures session_options for use below
-   config.session_store :cookie_store, key: '_interslice_session'
+   config.session_store :cookie_store, key: '_interslice_session', :domain => :all,
+   :same_site => :none, :secure => :true
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
-  config.middleware.use ActionDispatch::Session::CookieStore,
-  key: '_cookie_name', path: '/', SameSite=None; Secure
+  config.middleware.use ActionDispatch::Session::CookieStore
   config.middleware.use ActionDispatch::Flash
   config.middleware.use config.session_store, config.session_options
   config.middleware.use Rack::MethodOverride
