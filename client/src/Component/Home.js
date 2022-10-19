@@ -16,7 +16,7 @@ function Home({auth, setAuth,reload}) {
     .then((blogs) => {
       setBlogs(blogs)
     });
-  }, [blogs, reload]);
+  }, [auth, reload]);
 
   const handleChange= (e)=>{
     setSearch(e.target.value)

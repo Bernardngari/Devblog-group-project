@@ -16,6 +16,8 @@ function App() {
   const onDeleteBlog= (deletedBlog) =>{
     setReload(deletedBlog)
   }
+
+  
  return (
    <div className='mainDiv'>
       <Router>
