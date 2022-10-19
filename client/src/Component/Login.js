@@ -13,11 +13,12 @@ const Login = ({onLogin}) => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
-  //const[error, setError] = useState("")
+  const [error, setError] = useState("")
   function handleSubmit(e) {
     e.preventDefault()
     fetch("https://devbugger.herokuapp.com/login", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,19 +26,18 @@ const Login = ({onLogin}) => {
     }).then((r) => {
       if (r.ok) {
          navigate("/");
-        r.json().then(data => onLogin(data.body.id))
+        //r.json().then(data => console.log(data))
       } else {
-        r.json().then((err) => console.log(err.message));
+        r.json().then((err) => setError(err.message));
       }
-    });
+    })
     
   }
-  console.log(values);
   return (
       <div className="login">
       <form className="form" id="login" onSubmit={handleSubmit}>
       <p>Login</p>
-        {/*<p className='error'>{ error}</p>*/}
+        <p className='error'>{ error}</p>
               <div className="label"><label>Username</label></div>
               <input type="text" placeholder="username" name='username' onChange={handleChange} required/>
               <div className="label"><label htmlFor="password">Password</label></div>

@@ -21,7 +21,8 @@ module Devblog
    config.session_store :cookie_store, key: '_interslice_session'
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
-  config.middleware.use ActionDispatch::Session::CookieStore
+  config.middleware.use ActionDispatch::Session::CookieStore,
+  key: '_cookie_name', path: '/', same_site: :None, Secure
   config.middleware.use ActionDispatch::Flash
   config.middleware.use config.session_store, config.session_options
   config.middleware.use Rack::MethodOverride
