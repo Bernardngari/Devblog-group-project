@@ -22,7 +22,7 @@ module Devblog
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
   config.middleware.use ActionDispatch::Session::CookieStore,
-  key: '_cookie_name', path: '/', same_site: :None, Secure
+  key: '_cookie_name', path: '/', same_site: :None, secure: :true
   config.middleware.use ActionDispatch::Flash
   config.middleware.use config.session_store, config.session_options
   config.middleware.use Rack::MethodOverride
