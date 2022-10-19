@@ -12,15 +12,16 @@ import React from 'react';
 
 function App() {
   const [auth, setAuth] = useState()
-  const onDeleteBlog= () =>{
-    window.location.reload()
+  const [reload, setReload] = useState()
+  const onDeleteBlog= (deletedBlog) =>{
+    setReload(deletedBlog)
   }
  return (
    <div className='mainDiv'>
       <Router>
       <Navbar auth={auth} setAuth={setAuth}/>
        <Routes>
-         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth}/>} />
+         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth} reload={reload}/>} />
          <Route exact path="/signup" element={<Signup />} />
          <Route exact path="/login" element={ <Login />} />
          <Route exact path="/blogs/:id" element={<BloggerWithComments onDeleteBlog={onDeleteBlog} loggedInUser={auth}/>} />

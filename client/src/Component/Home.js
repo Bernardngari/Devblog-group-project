@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-function Home({auth, setAuth}) {
+function Home({auth, setAuth,reload}) {
   const [blogs, setBlogs]= useState([]);
   const [showWarning, setWarning] = useState(false)
   const [searchValue, setSearch] = useState("")
@@ -16,7 +16,7 @@ function Home({auth, setAuth}) {
     .then((blogs) => {
       setBlogs(blogs)
     });
-  }, []);
+  }, [blogs, reload]);
 
   const handleChange= (e)=>{
     setSearch(e.target.value)

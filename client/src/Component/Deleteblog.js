@@ -4,16 +4,15 @@ import { confirmAlert } from 'react-confirm-alert';
 
 function Deleteblog({id,onDeleteBlog}){
   const navigate = useNavigate()
-  const handleDelete= ()=>{
+  function handleDelete(){
     fetch(`https://devbugger.herokuapp.com/blogs/${id}`,{
-      method: "DELETE", 
+      method: "DELETE",
       headers:{
         "Content-Type": "application/json"
       }
     })
-    navigate("/")
-    onDeleteBlog();
-    
+    onDeleteBlog(id)
+    navigate('/')
   }
 
   function submit(){
