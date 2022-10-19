@@ -26,7 +26,7 @@ const Login = ({onLogin}) => {
     }).then((r) => {
       if (r.ok) {
          navigate("/");
-        //r.json().then(data => console.log(data))
+        r.json().then(data => onLogin(data.body.id))
       } else {
         r.json().then((err) => setError(err.message));
       }

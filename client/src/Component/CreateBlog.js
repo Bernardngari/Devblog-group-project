@@ -17,6 +17,7 @@ const CreateBlog = () => {
         e.preventDefault()
         fetch("https://devbugger.herokuapp.com/blogs", {
           method: "POST",
+          credentials: 'include',
           headers: {
             "Content-Type": "application/json",
           },

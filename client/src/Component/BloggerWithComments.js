@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import Createcomment from './Createcomment'
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 import capitalize from './capitalize';
 import Comment from './Comment';
 import Editblog from './Editblog';
@@ -9,16 +9,18 @@ import Deleteblog from './Deleteblog';
 import { Link } from 'react-router-dom';
 
 
-function BloggerWithComments({loggedInUser, onDeleteBlog}){
+function BloggerWithComments({ loggedInUser,onDeleteBlog}){
   const {id} = useParams();
   const [blog, setBlog]= useState({});
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [blogOwner, setId] = useState("")
-  //const [deletion, setDeletion] = useState(false)
   
   const fetchData = async () => {
-    const response = await fetch(`https://devbugger.herokuapp.com/blogs/${id}`)
+    const response = await fetch(`https://devbugger.herokuapp.com/blogs/${id}`,{
+      credentials: 'include',
+      mode: 'cors'
+    })
     if (!response.ok) {
       throw new Error('Data could not be fetched!')
     } else {

@@ -15,6 +15,8 @@ function Commentform({showAdd,setShowAdd, id, onAddComment}){
       e.preventDefault();
       fetch("https://devbugger.herokuapp.com/comments",{
         method:"POST",
+        credentials:"include",
+        mode: "cors",
         headers:{
           "Content-Type": "application/json"
         },

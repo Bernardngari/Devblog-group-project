@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
-function Home({auth}) {
+function Home({auth, setAuth}) {
   const [blogs, setBlogs]= useState([]);
   const [showWarning, setWarning] = useState(false)
   const [searchValue, setSearch] = useState("")
@@ -10,7 +10,7 @@ function Home({auth}) {
   }
   useEffect (() => {
     fetch("https://devbugger.herokuapp.com/blogs", {
-      mode: "cors"
+      credentials: 'include'
     })
     .then((response) => response.json())
     .then((blogs) => {
@@ -21,7 +21,13 @@ function Home({auth}) {
   const handleChange= (e)=>{
     setSearch(e.target.value)
   }
-
+  useEffect(() => {
+    fetch('https://devbugger.herokuapp.com/me',{
+      credentials: 'include'
+    })
+      .then((res) => res.json())
+      .then((user) => setAuth(user.id))
+  },[auth])
       const filtered = blogs.filter((blog) =>blog.title.toUpperCase().includes(searchValue.toUpperCase()) || blog.content.toUpperCase().includes(searchValue.toUpperCase()))
 
   let blogBody = (filtered.map((blog) =>(
