@@ -18,7 +18,7 @@ module Devblog
       end
     end
     # This also configures session_options for use below
-   config.session_store :cookie_store, key: '_interslice_session', :domain => :all,
+   config.session_store :cookie_store, key: '_interslice_session',
    :same_site => :none, :secure => :true
 # Required for all session management (regardless of session_store)
   config.middleware.use ActionDispatch::Cookies
