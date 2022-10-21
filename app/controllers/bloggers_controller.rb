@@ -9,7 +9,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
   def me
     blogger = Blogger.find(session[:blogger_id])
-    render json: blogger, serializer: MeSerializer, status: :ok
+    #render json: blogger, serializer: MeSerializer, status: :ok
+    render json: {status: logged_in?, user: blogger, serializer: MeSerializer}, status: :ok
   end
   
 

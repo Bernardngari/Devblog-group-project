@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-function Navbar({auth}) {
+function Navbar({auth, setAuth}) {
   function handleLogout(){
     fetch("https://devbugger.herokuapp.com/logout", {
       method: "DELETE",
       credentials: 'include'
     })
+    setAuth(0)
   }
   return (
     <div className="navBar">

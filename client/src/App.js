@@ -12,7 +12,7 @@ import React from 'react';
 import { useEffect } from 'react';
 
 function App() {
-  const [auth, setAuth] = useState(0)
+  const [auth, setAuth] = useState()
 
   useEffect(() => {
     fetch('https://devbugger.herokuapp.com/me',{

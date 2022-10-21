@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
 
   
   def logout
-    #session.delete :blogger_id
-    session.clear
+    session.delete :blogger_id
     render json: {message: "Logout success"}
   end
 end

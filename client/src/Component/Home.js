@@ -16,7 +16,7 @@ function Home({auth}) {
     .then((blogs) => {
       setBlogs(blogs)
     });
-  }, []);
+  }, [auth]);
 
   //const onDeleteBlog =(id) =>{
   //  let newState = blogs.filter((blog) => blog.id !== id)
