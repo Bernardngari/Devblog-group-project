@@ -9,25 +9,20 @@ import { useState} from 'react';
 import CreateBlog from './Component/CreateBlog';
 import "react-confirm-alert/src/react-confirm-alert.css"
 import React from 'react';
-import { useEffect } from 'react';
 
 function App() {
   const [auth, setAuth] = useState()
 
-  useEffect(() => {
-    fetch('https://devbugger.herokuapp.com/me',{
-      credentials: 'include'
-    })
-      .then((res) => res.json())
-      .then((user) => setAuth(user.id))
-  },[])
+  const onLogin =(authStatus)=>{
+    setAuth(authStatus)
+  }
 
   return (
    <div className='mainDiv'>
       <Router>
       <Navbar auth={auth} setAuth={setAuth}/>
        <Routes>
-         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth} />} />
+         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth} onLogin={onLogin}/>} />
          <Route exact path="/signup" element={<Signup />} />
          <Route exact path="/login" element={ <Login />} />
          <Route exact path="/blogs/:id" element={<BloggerWithComments  loggedInUser={auth}/>} />
