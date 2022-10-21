@@ -8,13 +8,22 @@ import BloggerWithComments from './Component/BloggerWithComments';
 import { useState} from 'react';
 import CreateBlog from './Component/CreateBlog';
 import "react-confirm-alert/src/react-confirm-alert.css"
-import React from 'react';
+import { useEffect } from 'react';
 
 function App() {
   const [auth, setAuth] = useState()
+  const [reload, setReload] = useState(false)
+  
+  useEffect(() => {
+    fetch('https://devbugger.herokuapp.com/me',{
+      credentials: 'include'
+    })
+      .then((res) => res.json())
+      .then((user) => setAuth(user.id))
+  },[reload])
 
-  const onLogin =(authStatus)=>{
-    setAuth(authStatus)
+  const onLogin =() =>{
+    setReload(() => !reload)
   }
 
   return (
@@ -22,9 +31,9 @@ function App() {
       <Router>
       <Navbar auth={auth} setAuth={setAuth}/>
        <Routes>
-         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth} onLogin={onLogin}/>} />
+         <Route exact path="/" element={<Home auth={auth} setAuth={setAuth} />} />
          <Route exact path="/signup" element={<Signup />} />
-         <Route exact path="/login" element={ <Login />} />
+         <Route exact path="/login" element={ <Login onLogin={onLogin} />} />
          <Route exact path="/blogs/:id" element={<BloggerWithComments  loggedInUser={auth}/>} />
          <Route exact path="/create-blog" element={<CreateBlog />} />
          <Route exact path="/logout" element={<Login />} />

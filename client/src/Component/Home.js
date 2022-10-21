@@ -1,7 +1,7 @@
 import {  NavLink } from "react-router-dom";
 import capitalize from "./capitalize";
 import { useState, useEffect} from "react";
-function Home({auth, onLogin}) {
+function Home({auth}) {
   const [showWarning, setWarning] = useState(false)
   const [blogs, setBlogs]= useState([]);
   const [searchValue, setSearch] = useState("")
@@ -18,13 +18,7 @@ function Home({auth, onLogin}) {
     });
   }, [auth]);
 
-  useEffect(() => {
-    fetch('https://devbugger.herokuapp.com/me',{
-      credentials: 'include'
-    })
-      .then((res) => res.json())
-      .then((user) => onLogin(user.id))
-  },[])
+  
 
   //const onDeleteBlog =(id) =>{
   //  let newState = blogs.filter((blog) => blog.id !== id)
