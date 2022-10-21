@@ -1,28 +1,28 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
 import { confirmAlert } from 'react-confirm-alert';
+import {useNavigate} from 'react-router-dom';
 
 function Deleteblog({id,onDeleteBlog}){
-  const navigate = useNavigate()
-  function handleDelete(){
+  const navigate = useNavigate();
+  function handleDelete(e){
     fetch(`https://devbugger.herokuapp.com/blogs/${id}`,{
       method: "DELETE",
       headers:{
         "Content-Type": "application/json"
       }
     })
-    onDeleteBlog(id)
+    onDeleteBlog(e.target.id)
     navigate('/')
   }
 
-  function submit(){
+  function submit(e){
 		confirmAlert({
 			title: "Confirm deletion",
 			message:"All data will be lost. Wish to delete?",
 			buttons: [
 				{
 					label: "Yes",
-					onClick : ()=> handleDelete()
+					onClick : ()=> handleDelete(e)
 				},
 				{
 					label: "No",

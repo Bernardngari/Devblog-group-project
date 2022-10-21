@@ -8,7 +8,6 @@ import Editblog from './Editblog';
 import Deleteblog from './Deleteblog';
 import { Link } from 'react-router-dom';
 
-
 function BloggerWithComments({ loggedInUser,onDeleteBlog}){
   const {id} = useParams();
   const [blog, setBlog]= useState({});
@@ -57,8 +56,6 @@ function BloggerWithComments({ loggedInUser,onDeleteBlog}){
     let updatedState = [...comments, newComment]
     setComments(updatedState);
   }
-
-  
   
   return (
     <div className="container-1">
